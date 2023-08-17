@@ -9,7 +9,7 @@ export default {
             colors: {
                 nude: {
                     100: '#FBAF85',
-                    200: '#D87D4A',
+                    200: 'rgba(216,125,74,1)',
                 },
 
                 offBlack: {
@@ -19,6 +19,7 @@ export default {
                 offWhite: {
                     100: '#F1F1F1',
                     200: '#FAFAFA',
+                    300: '#F1F1F1',
                 },
             },
             fontSize: {
@@ -77,7 +78,26 @@ export default {
                         fontWeight: '700',
                     },
                 ],
+                subHeader: [
+                    '28px',
+                    {
+                        lineHeight: '38px',
+                        letterSpacing: '2px',
+                        fontWeight: '700',
+                    },
+                ],
+                tabletSubHeader: [
+                    '40px',
+                    {
+                        lineHeight: '44px',
+                        letterSpacing: '1.429px',
+                        fontWeight: '700',
+                    },
+                ],
             },
+        },
+        variants: {
+            fill: ['hover', 'focus'],
         },
     },
     plugins: [],

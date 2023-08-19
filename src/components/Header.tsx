@@ -1,5 +1,5 @@
 // hooks
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 // components
 import { DropdownMenu } from './DropdownMenu'
@@ -26,39 +26,39 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                         alt="hamburger menu"
                         onClick={handleClick}
                     />
-                    <Link to="/">
+                    <NavLink to="/">
                         <img
                             src={Logo}
                             className="absolute left-1/2 -translate-x-1/2 cursor-pointer md:static md:ml-[42px] md:translate-x-0 xl:ml-0"
                             alt="audiophile logo"
                         />
-                    </Link>
+                    </NavLink>
 
                     <ul className="absolute left-1/2 hidden -translate-x-1/2 gap-[34px] text-link xl:flex">
-                        <Link
+                        <NavLink
                             to="/"
-                            className="cursor-pointer hover:text-nude-200"
+                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
                         >
                             HOME
-                        </Link>
-                        <Link
-                            to="/Headphones"
-                            className="cursor-pointer hover:text-nude-200"
+                        </NavLink>
+                        <NavLink
+                            to="/headphones"
+                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
                         >
                             HEADPHONES
-                        </Link>
-                        <Link
-                            to="/"
-                            className="cursor-pointer hover:text-nude-200"
+                        </NavLink>
+                        <NavLink
+                            to="/speakers"
+                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
                         >
                             SPEAKERS
-                        </Link>
-                        <Link
-                            to="/"
-                            className="cursor-pointer hover:text-nude-200"
+                        </NavLink>
+                        <NavLink
+                            to="/earphones"
+                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
                         >
                             EARPHONES
-                        </Link>
+                        </NavLink>
                     </ul>
                     <img
                         src={Cart}
@@ -69,7 +69,11 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                 <span className="absolute bottom-0 left-0 right-0 mx-auto h-[1px] max-w-[1100px] border-0 bg-offBlack-200 md:w-[calc(100%-78px)]"></span>
             </nav>
             {/* dropdown menu */}
-            <DropdownMenu isActive={isActive} isDropDown={true} />
+            <DropdownMenu
+                isActive={isActive}
+                isDropDown={true}
+                handleClick={handleClick}
+            />
         </>
     )
 }

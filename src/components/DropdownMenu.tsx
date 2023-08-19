@@ -1,4 +1,6 @@
 import clsx from 'clsx'
+// hooks
+import { useNavigate } from 'react-router-dom'
 // svgs
 import Arrow from '../assets/shared/desktop/icon-arrow-right.svg'
 // imgs
@@ -9,14 +11,22 @@ import Earphones from '../assets/shared/desktop/image-category-thumbnail-earphon
 interface DropdownMenuProps {
     isActive?: boolean
     isDropDown: boolean
+    handleClick?: () => void
 }
 
-export const DropdownMenu = ({ isActive, isDropDown }: DropdownMenuProps) => {
+export const DropdownMenu = ({
+    isActive,
+    isDropDown,
+    handleClick,
+}: DropdownMenuProps) => {
+    const navigate = useNavigate()
+
     const dropdownClasses = clsx(
         'z-40 flex w-full flex-col items-center gap-[68px] rounded-b-lg bg-white md:flex-row md:gap-[10px] xl:gap-[30px]',
         {
             // styles for non-dropodwn menu
-            'my-[120px] max-w-[1100px] md:my-24 xl:mt-32': !isDropDown,
+            'my-[120px] max-w-[1100px] md:mt-24 xl:mb-[160px] xl:mt-32':
+                !isDropDown,
             // styles for dropdown menu when its not active
             'fixed top-[-750px] px-6 pb-[35px] pt-[84px] transition-all ease-in-out md:px-10 md:pb-[67px] md:pt-[108px]':
                 isDropDown,
@@ -26,9 +36,17 @@ export const DropdownMenu = ({ isActive, isDropDown }: DropdownMenuProps) => {
         }
     )
 
+    const handleNavigate = (param: string) => {
+        isActive && handleClick && handleClick()
+        navigate(`/${param}`)
+    }
+
     return (
         <nav className={dropdownClasses}>
-            <div className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100">
+            <div
+                onClick={() => handleNavigate('headphones')}
+                className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100"
+            >
                 <img
                     className="absolute bottom-0 flex h-[165px] -translate-y-1/3 transition-all delay-100 ease-in-out md:group-hover:bottom-2"
                     src={Headphones}
@@ -40,7 +58,10 @@ export const DropdownMenu = ({ isActive, isDropDown }: DropdownMenuProps) => {
                     <img className="h-[10px] self-center" src={Arrow} alt="" />
                 </div>
             </div>
-            <div className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100">
+            <div
+                onClick={() => handleNavigate('speakers')}
+                className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100"
+            >
                 <img
                     className="absolute bottom-0 flex h-[165px] -translate-y-1/3 transition-all delay-100 ease-in-out md:group-hover:bottom-2"
                     src={Speakers}
@@ -52,7 +73,10 @@ export const DropdownMenu = ({ isActive, isDropDown }: DropdownMenuProps) => {
                     <img className="h-[10px] self-center" src={Arrow} alt="" />
                 </div>
             </div>
-            <div className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100">
+            <div
+                onClick={() => handleNavigate('earphones')}
+                className="group relative flex h-[165px] w-full cursor-pointer flex-col items-center justify-end rounded-lg bg-offWhite-100"
+            >
                 <img
                     className="absolute bottom-0 flex h-[165px] -translate-y-1/3 transition-all delay-100 ease-in-out md:group-hover:bottom-2"
                     src={Earphones}

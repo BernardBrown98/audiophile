@@ -22,6 +22,7 @@ export const Earphones = () => {
                         mobileImg={MobileYX1}
                         tabletImg={TabletYX1}
                         desktopImg={DesktopYX1}
+                        productLink="/"
                     >
                         Tailor your listening experience with bespoke dynamic
                         drivers from the new YX1 Wireless Earphones. Enjoy

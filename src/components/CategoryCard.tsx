@@ -1,3 +1,6 @@
+// router components
+import { Link } from 'react-router-dom'
+
 import clsx from 'clsx'
 
 interface CategoryCardProps {
@@ -8,6 +11,7 @@ interface CategoryCardProps {
     mobileImg: string
     tabletImg: string
     desktopImg: string
+    productLink: string
 }
 
 export const CategoryCard = ({
@@ -18,6 +22,7 @@ export const CategoryCard = ({
     mobileImg,
     tabletImg,
     desktopImg,
+    productLink,
 }: CategoryCardProps) => {
     const pcitureClasses = clsx(
         'flex w-full flex-col items-center rounded-lg bg-offWhite-300 xl:w-1/2',
@@ -47,9 +52,12 @@ export const CategoryCard = ({
                 <p className="mb-6 max-w-[573px] text-p opacity-50 xl:mb-10 xl:max-w-[445px]">
                     {children}
                 </p>
-                <button className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">
+                <Link
+                    to={productLink}
+                    className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
+                >
                     SEE PRODUCT
-                </button>
+                </Link>
             </div>
         </div>
     )

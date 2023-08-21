@@ -9,6 +9,7 @@ import { Headphones } from './pages/Headphones'
 import { Layout } from './layout/Layout'
 import { Speakers } from './pages/Speakers'
 import { Earphones } from './pages/Earphones'
+import { XX99MarkII } from './pages/XX99MarkII'
 function App() {
     useScrollToTop()
     return (
@@ -19,6 +20,10 @@ function App() {
                     <Route path="/headphones" element={<Headphones />} />
                     <Route path="/speakers" element={<Speakers />} />
                     <Route path="/earphones" element={<Earphones />} />
+                    <Route
+                        path="/xx99-mk2-headphones"
+                        element={<XX99MarkII />}
+                    />
                 </Route>
             </Routes>
         </div>

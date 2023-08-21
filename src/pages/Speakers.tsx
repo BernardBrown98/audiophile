@@ -26,6 +26,7 @@ export const Speakers = () => {
                         mobileImg={MobileZX7}
                         tabletImg={TabletZX7}
                         desktopImg={DesktopZX7}
+                        productLink="/"
                     >
                         Upgrade your sound system with the all new ZX9 active
                         speaker. It’s a bookshelf speaker system that offers
@@ -39,6 +40,7 @@ export const Speakers = () => {
                         mobileImg={MobileZX9}
                         tabletImg={TabletZX9}
                         desktopImg={DesktopZX9}
+                        productLink="/"
                     >
                         Stream high quality sound wirelessly with minimal loss.
                         The ZX7 bookshelf speaker uses high-end audiophile

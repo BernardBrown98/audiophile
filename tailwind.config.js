@@ -94,6 +94,14 @@ export default {
                         fontWeight: '700',
                     },
                 ],
+                price: [
+                    '18px',
+                    {
+                        lineHeight: '25px',
+                        letterSpacing: '1.286px',
+                        fontWeight: '700',
+                    },
+                ],
             },
         },
         variants: {

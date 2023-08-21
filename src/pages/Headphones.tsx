@@ -30,6 +30,7 @@ export const Headphones = () => {
                         mobileImg={MobileMarkIIHeadphones}
                         tabletImg={TabletMarkIIHeadphones}
                         desktopImg={DesktopMarkIIHeadphones}
+                        productLink="/xx99-mk2-headphones"
                     >
                         The new XX99 Mark II headphones is the pinnacle of
                         pristine audio. It redefines your premium headphone
@@ -42,6 +43,7 @@ export const Headphones = () => {
                         mobileImg={MobileMarkIHeadphones}
                         tabletImg={TabletMarkIHeadphones}
                         desktopImg={DesktopMarkIHeadphones}
+                        productLink="/"
                     >
                         As the gold standard for headphones, the classic XX99
                         Mark I offers detailed and accurate audio reproduction
@@ -53,6 +55,7 @@ export const Headphones = () => {
                         mobileImg={MobileXX59}
                         tabletImg={TabletXX59}
                         desktopImg={DesktopXX59}
+                        productLink="/"
                     >
                         Enjoy your audio almost anywhere and customize it to
                         your specific tastes with the XX59 headphones. The

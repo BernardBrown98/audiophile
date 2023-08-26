@@ -1,5 +1,8 @@
 // hooks
 import { useState } from 'react'
+// svgs
+import { ReactComponent as Subtract } from '../../assets/shared/desktop/subtract.svg'
+import { ReactComponent as Plus } from '../../assets/shared/desktop/plus.svg'
 
 export const ItemCounter = () => {
     const [count, setCount] = useState(1)
@@ -11,20 +14,16 @@ export const ItemCounter = () => {
             : setCount((prevCount) => prevCount - 1)
     }
     return (
-        <div className="flex justify-center bg-offWhite-100 p-[15.5px] text-shop ">
-            <span
+        <div className="flex items-center justify-center bg-offWhite-100 p-[15.5px] text-shop">
+            <Subtract
                 onClick={() => handleCount('sub')}
-                className="mr-[21px] cursor-pointer rounded-[50%] px-[6px] opacity-25 hover:bg-[rgb(220,220,220)] hover:text-nude-200 hover:opacity-100"
-            >
-                -
-            </span>
+                className="mr-[21px] cursor-pointer opacity-50 transition-all ease-in-out hover:fill-nude-200 hover:opacity-100"
+            />
             <span>{count}</span>
-            <span
+            <Plus
                 onClick={() => handleCount('add')}
-                className="ml-[21px] cursor-pointer rounded-[50%] px-[4px] opacity-25 hover:bg-[rgb(220,220,220)] hover:text-nude-200 hover:opacity-100"
-            >
-                +
-            </span>
+                className="ml-[21px] cursor-pointer stroke-black opacity-50 transition-all ease-in-out hover:stroke-nude-200 hover:opacity-100"
+            />
         </div>
     )
 }

@@ -1,12 +1,12 @@
 // components
-import { CategoryCard } from '../components/CategoryCard'
-import { DropdownMenu } from '../components/DropdownMenu'
-import { ModelGear } from '../components/ModelGear'
+import { CategoryCard } from '../../components/CategoryCard'
+import { DropdownMenu } from '../../components/DropdownMenu'
+import { ModelGear } from '../../components/ModelGear'
 
 // Mark II Imgs
-import MobileYX1 from '../assets/product-yx1-earphones/mobile/image-category-page-preview.jpg'
-import TabletYX1 from '../assets/product-yx1-earphones/tablet/image-category-page-preview.jpg'
-import DesktopYX1 from '../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg'
+import MobileYX1 from '../../assets/product-yx1-earphones/mobile/image-category-page-preview.jpg'
+import TabletYX1 from '../../assets/product-yx1-earphones/tablet/image-category-page-preview.jpg'
+import DesktopYX1 from '../../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg'
 
 export const Earphones = () => {
     return (
@@ -22,7 +22,7 @@ export const Earphones = () => {
                         mobileImg={MobileYX1}
                         tabletImg={TabletYX1}
                         desktopImg={DesktopYX1}
-                        productLink="/"
+                        productLink="/earphones/yx1"
                     >
                         Tailor your listening experience with bespoke dynamic
                         drivers from the new YX1 Wireless Earphones. Enjoy

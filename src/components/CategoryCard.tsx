@@ -46,7 +46,7 @@ export const CategoryCard = ({
                         NEW PRODUCT
                     </h2>
                 )}
-                <h3 className="mb-6 max-w-[384px] text-subHeader md:mb-8 md:text-tabletSubHeader xl:max-w-[300px]">
+                <h3 className="mb-6 max-w-[384px] whitespace-pre-wrap text-subHeader md:mb-8 md:text-tabletSubHeader xl:max-w-[300px]">
                     {productTitle}
                 </h3>
                 <p className="mb-6 max-w-[573px] text-p opacity-50 xl:mb-10 xl:max-w-[445px]">

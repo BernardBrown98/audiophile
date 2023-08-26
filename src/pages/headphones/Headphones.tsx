@@ -1,20 +1,20 @@
 // components
-import { CategoryCard } from '../components/CategoryCard'
-import { DropdownMenu } from '../components/DropdownMenu'
-import { ModelGear } from '../components/ModelGear'
+import { CategoryCard } from '../../components/CategoryCard'
+import { DropdownMenu } from '../../components/DropdownMenu'
+import { ModelGear } from '../../components/ModelGear'
 
 // Mark II Imgs
-import MobileMarkIIHeadphones from '../assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg'
-import TabletMarkIIHeadphones from '../assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg'
-import DesktopMarkIIHeadphones from '../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg'
+import MobileMarkIIHeadphones from '../../assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg'
+import TabletMarkIIHeadphones from '../../assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg'
+import DesktopMarkIIHeadphones from '../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg'
 // Mark I Imgs
-import MobileMarkIHeadphones from '../assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg'
-import TabletMarkIHeadphones from '../assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg'
-import DesktopMarkIHeadphones from '../assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg'
+import MobileMarkIHeadphones from '../../assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg'
+import TabletMarkIHeadphones from '../../assets/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg'
+import DesktopMarkIHeadphones from '../../assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg'
 // Mark XX59 Imgs
-import MobileXX59 from '../assets/product-xx59-headphones/mobile/image-category-page-preview.jpg'
-import TabletXX59 from '../assets/product-xx59-headphones/tablet/image-category-page-preview.jpg'
-import DesktopXX59 from '../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg'
+import MobileXX59 from '../../assets/product-xx59-headphones/mobile/image-category-page-preview.jpg'
+import TabletXX59 from '../../assets/product-xx59-headphones/tablet/image-category-page-preview.jpg'
+import DesktopXX59 from '../../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg'
 
 export const Headphones = () => {
     return (
@@ -30,7 +30,7 @@ export const Headphones = () => {
                         mobileImg={MobileMarkIIHeadphones}
                         tabletImg={TabletMarkIIHeadphones}
                         desktopImg={DesktopMarkIIHeadphones}
-                        productLink="/xx99-mk2-headphones"
+                        productLink="/headphones/xx99-mk2"
                     >
                         The new XX99 Mark II headphones is the pinnacle of
                         pristine audio. It redefines your premium headphone
@@ -43,7 +43,7 @@ export const Headphones = () => {
                         mobileImg={MobileMarkIHeadphones}
                         tabletImg={TabletMarkIHeadphones}
                         desktopImg={DesktopMarkIHeadphones}
-                        productLink="/"
+                        productLink="/headphones/xx99-mk1"
                     >
                         As the gold standard for headphones, the classic XX99
                         Mark I offers detailed and accurate audio reproduction
@@ -51,11 +51,11 @@ export const Headphones = () => {
                         alike in studios and on the go.
                     </CategoryCard>
                     <CategoryCard
-                        productTitle="XX59 Headphones"
+                        productTitle={'XX59 \nHeadphones'}
                         mobileImg={MobileXX59}
                         tabletImg={TabletXX59}
                         desktopImg={DesktopXX59}
-                        productLink="/"
+                        productLink="/headphones/xx59"
                     >
                         Enjoy your audio almost anywhere and customize it to
                         your specific tastes with the XX59 headphones. The

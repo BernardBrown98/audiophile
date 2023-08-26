@@ -1,16 +1,16 @@
 // components
-import { CategoryCard } from '../components/CategoryCard'
-import { DropdownMenu } from '../components/DropdownMenu'
-import { ModelGear } from '../components/ModelGear'
+import { CategoryCard } from '../../components/CategoryCard'
+import { DropdownMenu } from '../../components/DropdownMenu'
+import { ModelGear } from '../../components/ModelGear'
 
 // ZX7 Imgs
-import MobileZX7 from '../assets/product-zx7-speaker/mobile/image-category-page-preview.jpg'
-import TabletZX7 from '../assets/product-zx7-speaker/tablet/image-category-page-preview.jpg'
-import DesktopZX7 from '../assets/product-zx7-speaker/desktop/image-category-page-preview.jpg'
+import MobileZX7 from '../../assets/product-zx7-speaker/mobile/image-category-page-preview.jpg'
+import TabletZX7 from '../../assets/product-zx7-speaker/tablet/image-category-page-preview.jpg'
+import DesktopZX7 from '../../assets/product-zx7-speaker/desktop/image-category-page-preview.jpg'
 // ZX9 Imgs
-import MobileZX9 from '../assets/product-zx9-speaker/mobile/image-category-page-preview.jpg'
-import TabletZX9 from '../assets/product-zx9-speaker/tablet/image-category-page-preview.jpg'
-import DesktopZX9 from '../assets/product-zx9-speaker/desktop/image-category-page-preview.jpg'
+import MobileZX9 from '../../assets/product-zx9-speaker/mobile/image-category-page-preview.jpg'
+import TabletZX9 from '../../assets/product-zx9-speaker/tablet/image-category-page-preview.jpg'
+import DesktopZX9 from '../../assets/product-zx9-speaker/desktop/image-category-page-preview.jpg'
 
 export const Speakers = () => {
     return (
@@ -26,7 +26,7 @@ export const Speakers = () => {
                         mobileImg={MobileZX7}
                         tabletImg={TabletZX7}
                         desktopImg={DesktopZX7}
-                        productLink="/"
+                        productLink="/speakers/zx7"
                     >
                         Upgrade your sound system with the all new ZX9 active
                         speaker. It’s a bookshelf speaker system that offers
@@ -40,7 +40,7 @@ export const Speakers = () => {
                         mobileImg={MobileZX9}
                         tabletImg={TabletZX9}
                         desktopImg={DesktopZX9}
-                        productLink="/"
+                        productLink="/speakers/zx9"
                     >
                         Stream high quality sound wirelessly with minimal loss.
                         The ZX7 bookshelf speaker uses high-end audiophile

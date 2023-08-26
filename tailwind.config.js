@@ -102,6 +102,30 @@ export default {
                         fontWeight: '700',
                     },
                 ],
+                mobileSubheader: [
+                    '24px',
+                    {
+                        lineHeight: '36px',
+                        letterSpacing: '0.875px',
+                        fontWeight: '700',
+                    },
+                ],
+                desktopSubheader: [
+                    '32px',
+                    {
+                        lineHeight: '36px',
+                        letterSpacing: '1.143px',
+                        fontWeight: '700',
+                    },
+                ],
+                recommendation: [
+                    '24px',
+                    {
+                        lineHeight: '33px',
+                        letterSpacing: '1.714px',
+                        fontWeight: '700',
+                    },
+                ],
             },
         },
         variants: {

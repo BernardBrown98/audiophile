@@ -1,3 +1,5 @@
+// router components
+import { Link } from 'react-router-dom'
 // zx9 imgs
 import ZX9MobileSpeaker from '../assets/home/mobile/image-speaker-zx9.png'
 import ZX9TabletSpeaker from '../assets/home/tablet/image-speaker-zx9.png'
@@ -42,9 +44,12 @@ export const ProductGrid = () => {
                             Upgrade to premium speakers that are phenomenally
                             built to deliver truly remarkable sound.
                         </p>
-                        <button className="bg-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-offBlack-200">
+                        <Link
+                            to="/speakers/zx9"
+                            className="bg-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-offBlack-200"
+                        >
                             SEE PRODUCT
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 {/* zx7 speaker */}
@@ -60,9 +65,12 @@ export const ProductGrid = () => {
                 >
                     <div className="flex h-full flex-col items-start justify-center gap-8 pl-6 text-black md:pl-[62px]">
                         <h3 className="text-subHeader md:mb-6">ZX7 SPEAKER</h3>
-                        <button className="border-[1.5px] border-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-black hover:text-white">
+                        <Link
+                            to="/speakers/zx7"
+                            className="border-[1.5px] border-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-black hover:text-white"
+                        >
                             SEE PRODUCT
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 {/* yx1 earphones */}
@@ -81,9 +89,12 @@ export const ProductGrid = () => {
                         <h3 className="text-subHeader md:mb-6">
                             YX1 EARPHONES
                         </h3>
-                        <button className="border-[1.5px] border-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-black hover:text-white">
+                        <Link
+                            to="/earphones/yx1"
+                            className="border-[1.5px] border-black px-[31.5px] py-[15px] text-shop transition-all ease-in-out hover:bg-black hover:text-white"
+                        >
                             SEE PRODUCT
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

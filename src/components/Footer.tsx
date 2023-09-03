@@ -1,6 +1,9 @@
 // router components
 import { NavLink } from 'react-router-dom'
 
+// components
+import { Links } from './Links'
+
 // icons & logo
 import Logo from '../assets/shared/desktop/logo.svg'
 import { ReactComponent as Facebook } from '../assets/shared/desktop/icon-facebook.svg'
@@ -9,41 +12,18 @@ import { ReactComponent as Instagram } from '../assets/shared/desktop/icon-insta
 
 export const Footer = () => {
     return (
-        <div className="flex w-full max-w-[1100px] flex-col  text-white">
-            <span className="h-[4px] w-[100px] self-center border-0 bg-nude-200 md:self-start"></span>
-            <div className="relative mt-[52px] flex flex-col gap-12 xl:mt-[75px]">
+        <div className="flex w-full max-w-[1100px] flex-col text-white">
+            <span className="ml-6 h-[4px] w-[100px] self-center border-0 bg-nude-200 md:ml-[39px] md:self-start"></span>
+            <div className="relative mt-[52px] flex flex-col gap-12 px-6 md:px-[39px] xl:mt-[75px]">
                 <NavLink to="/">
                     <img
-                        className=" h-[25px] w-[143px] cursor-pointer"
+                        className="mx-auto h-[25px] w-[143px] cursor-pointer md:mx-[unset]"
                         src={Logo}
                         alt="udiophile logo"
                     />
                 </NavLink>
-                <ul className="flex flex-col gap-4 text-link md:mt-8 md:flex-row md:gap-8 xl:absolute xl:right-0 xl:mt-0">
-                    <NavLink
-                        to="/"
-                        className="cursor-pointer transition-all ease-in-out hover:text-nude-200 aria-[current=page]:text-nude-200"
-                    >
-                        HOME
-                    </NavLink>
-                    <NavLink
-                        to="/headphones"
-                        className="cursor-pointer transition-all ease-in-out hover:text-nude-200 aria-[current=page]:text-nude-200"
-                    >
-                        HEADPHONES
-                    </NavLink>
-                    <NavLink
-                        to="/speakers"
-                        className="cursor-pointer transition-all ease-in-out hover:text-nude-200 aria-[current=page]:text-nude-200"
-                    >
-                        SPEAKERS
-                    </NavLink>
-                    <NavLink
-                        to="/earphones"
-                        className="cursor-pointer transition-all ease-in-out hover:text-nude-200 aria-[current=page]:text-nude-200"
-                    >
-                        EARPHONES
-                    </NavLink>
+                <ul className="flex flex-col items-center gap-4 text-link md:mt-8 md:flex-row md:gap-8 xl:absolute xl:right-0 xl:mt-0">
+                    <Links />
                 </ul>
                 <p className="max-w-[689px] text-center text-p opacity-50 md:mb-[32px] md:text-start xl:mb-2 xl:max-w-[540px]">
                     Audiophile is an all in one stop to fulfill your audio
@@ -55,7 +35,7 @@ export const Footer = () => {
                 <p className="text-center text-p opacity-50 md:text-start">
                     Copyright 2021. All Rights Reserved
                 </p>
-                <div className="mx-auto flex flex-row items-center gap-5 md:absolute md:bottom-0 md:right-0 xl:bottom-[52px]">
+                <div className="mx-auto flex flex-row items-center gap-5 md:absolute md:bottom-0 md:right-[39px] xl:bottom-[52px]">
                     <Facebook className="cursor-pointer fill-white transition-all ease-in-out hover:-translate-y-1 hover:scale-110 hover:fill-nude-200" />
                     <Twitter className="cursor-pointer fill-white transition-all ease-in-out hover:-translate-y-1 hover:scale-110 hover:fill-nude-200" />
                     <Instagram className="cursor-pointer fill-white transition-all ease-in-out hover:-translate-y-1 hover:scale-110 hover:fill-nude-200" />

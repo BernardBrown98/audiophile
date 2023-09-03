@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 // components
 import { DropdownMenu } from './DropdownMenu'
+import { Links } from './Links'
 // svgs
 import Hamburger from '../assets/shared/tablet/icon-hamburger.svg'
 import Close from '../assets/shared/tablet/icon-close.svg'
@@ -35,30 +36,7 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                     </NavLink>
 
                     <ul className="absolute left-1/2 hidden -translate-x-1/2 gap-[34px] text-link xl:flex">
-                        <NavLink
-                            to="/"
-                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
-                        >
-                            HOME
-                        </NavLink>
-                        <NavLink
-                            to="/headphones"
-                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
-                        >
-                            HEADPHONES
-                        </NavLink>
-                        <NavLink
-                            to="/speakers"
-                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
-                        >
-                            SPEAKERS
-                        </NavLink>
-                        <NavLink
-                            to="/earphones"
-                            className="cursor-pointer hover:text-nude-200 aria-[current=page]:text-nude-200"
-                        >
-                            EARPHONES
-                        </NavLink>
+                        <Links />
                     </ul>
                     <img
                         src={Cart}

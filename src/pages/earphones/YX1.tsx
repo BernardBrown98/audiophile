@@ -4,10 +4,8 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-// product imgs
-import Mobile from '/assets/product-yx1-earphones/mobile/image-product.jpg'
-import Tablet from '/assets/product-yx1-earphones/tablet/image-product.jpg'
-import Desktop from '/assets/product-yx1-earphones/desktop/image-product.jpg'
+// data
+import data from '../../data/products.json'
 // grid imgs
 import MobileGridGallery1 from '/assets/product-yx1-earphones/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-yx1-earphones/tablet/image-gallery-1.jpg'
@@ -30,21 +28,19 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-zx9-speaker.jpg'
 import DesktopRecomendation3 from '/assets/shared/desktop/image-zx9-speaker.jpg'
 
 export const YX1 = () => {
+    const earphones = data.earphones[0]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    newProduct
-                    productTitle={'YX1 WIRELESS EARPHONES'}
-                    mobileImg={Mobile}
-                    tabletImg={Tablet}
-                    desktopImg={Desktop}
-                    price={599}
+                    newProduct={earphones.newProduct}
+                    productTitle={earphones.productName}
+                    mobileImg={earphones.imgs.mobile}
+                    tabletImg={earphones.imgs.tablet}
+                    desktopImg={earphones.imgs.desktop}
+                    price={earphones.price}
                 >
-                    Tailor your listening experience with bespoke dynamic
-                    drivers from the new YX1 Wireless Earphones. Enjoy
-                    incredible high-fidelity sound even in noisy environments
-                    with its active noise cancellation feature.
+                    {earphones.description}
                 </ProductDetails>
                 <div className="mt-[88px] flex flex-col xl:flex-row xl:gap-[125px]">
                     <div className="xl:max-w-[635px]">

@@ -46,5 +46,56 @@
                 "desktop": "/assets/product-xx59-headphones/desktop/image-product.jpg"
             }
         }
+    ],
+    "speakers": [
+        {
+            "id": 4,
+            "productName": "ZX9 SPEAKER",
+            "price": 4500,
+            "newProduct": true,
+            "link": "/speakers/zx9",
+            "description": "Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.",
+            "imgs": {
+                "categoryMobile": "/assets/product-zx9-speaker/mobile/image-category-page-preview.jpg",
+                "categoryTablet": "/assets/product-zx9-speaker/tablet/image-category-page-preview.jpg",
+                "categoryDesktop": "/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg",
+                "mobile": "/assets/product-zx9-speaker/mobile/image-product.jpg",
+                "tablet": "/assets/product-zx9-speaker/tab0let/image-product.jpg",
+                "desktop": "/assets/product-zx9-speaker/desktop/image-product.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "productName": "ZX7 SPEAKER",
+            "price": 3500,
+            "link": "/speakers/zx7",
+            "description": "Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.",
+            "imgs": {
+                "categoryMobile": "/assets/product-zx7-speaker/mobile/image-category-page-preview.jpg",
+                "categoryTablet": "/assets/product-zx7-speaker/tablet/image-category-page-preview.jpg",
+                "categoryDesktop": "/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg",
+                "mobile": "/assets/product-zx7-speaker/mobile/image-product.jpg",
+                "tablet": "/assets/product-zx7-speaker/tablet/image-product.jpg",
+                "desktop": "/assets/product-zx7-speaker/desktop/image-product.jpg"
+            }
+        }
+    ],
+    "earphones": [
+        {
+            "id": 6,
+            "productName": "YX1 WIRELESS EARPHONES",
+            "price": 599,
+            "newProduct": true,
+            "link": "/earphones/yx1",
+            "description": "Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.",
+            "imgs": {
+                "categoryMobile": "/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg",
+                "categoryTablet": "/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg",
+                "categoryDesktop": "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+                "mobile": "/assets/product-yx1-earphones/mobile/image-product.jpg",
+                "tablet": "/assets/product-yx1-earphones/tab0let/image-product.jpg",
+                "desktop": "/assets/product-yx1-earphones/desktop/image-product.jpg"
+            }
+        }
     ]
 }

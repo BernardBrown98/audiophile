@@ -4,10 +4,8 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-// product imgs
-import Mobile from '/assets/product-zx7-speaker/mobile/image-product.jpg'
-import Tablet from '/assets/product-zx7-speaker/tablet/image-product.jpg'
-import Desktop from '/assets/product-zx7-speaker/desktop/image-product.jpg'
+// data
+import data from '../../data/products.json'
 // grid imgs
 import MobileGridGallery1 from '/assets/product-zx7-speaker/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-zx7-speaker/tablet/image-gallery-1.jpg'
@@ -30,21 +28,19 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-xx59-headphones.jp
 import DesktopRecomendation3 from '/assets/shared/desktop/image-xx59-headphones.jpg'
 
 export const ZX7 = () => {
+    const speakers = data.speakers[1]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    newProduct
-                    productTitle={'ZX7 \nSPEAKER'}
-                    mobileImg={Mobile}
-                    tabletImg={Tablet}
-                    desktopImg={Desktop}
-                    price={3500}
+                    newProduct={speakers.newProduct}
+                    productTitle={speakers.productName}
+                    mobileImg={speakers.imgs.mobile}
+                    tabletImg={speakers.imgs.tablet}
+                    desktopImg={speakers.imgs.desktop}
+                    price={speakers.price}
                 >
-                    Stream high quality sound wirelessly with minimal to no
-                    loss. The ZX7 speaker uses high-end audiophile components
-                    that represents the top of the line powered speakers for
-                    home or studio use.
+                    {speakers.description}
                 </ProductDetails>
                 <div className="mt-[88px] flex flex-col xl:flex-row xl:gap-[125px]">
                     <div className="xl:max-w-[635px]">

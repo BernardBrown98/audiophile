@@ -2,6 +2,7 @@
 import { CategoryCard } from '../../components/CategoryCard'
 import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
+
 // data
 import data from '../../data/products.json'
 export const Headphones = () => {

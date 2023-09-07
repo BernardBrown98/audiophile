@@ -4,10 +4,8 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-
 // data
 import data from '../../data/products.json'
-
 // grid imgs
 import MobileGridGallery1 from '/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg'

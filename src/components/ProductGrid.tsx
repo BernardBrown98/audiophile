@@ -1,17 +1,17 @@
 // router components
 import { Link } from 'react-router-dom'
 // zx9 imgs
-import ZX9MobileSpeaker from '../assets/home/mobile/image-speaker-zx9.png'
-import ZX9TabletSpeaker from '../assets/home/tablet/image-speaker-zx9.png'
-import ZX9DesktopSpeaker from '../assets/home/desktop/image-speaker-zx9.png'
+import ZX9MobileSpeaker from '/assets/home/mobile/image-speaker-zx9.png'
+import ZX9TabletSpeaker from '/assets/home/tablet/image-speaker-zx9.png'
+import ZX9DesktopSpeaker from '/assets/home/desktop/image-speaker-zx9.png'
 // zx7 speakers
-import ZX7MobileSpeaker from '../assets/home/mobile/image-speaker-zx7.jpg'
-import ZX7TabletSpeaker from '../assets/home/tablet/image-speaker-zx7.jpg'
-import ZX7DesktopSpeaker from '../assets/home/desktop/image-speaker-zx7.jpg'
+import ZX7MobileSpeaker from '/assets/home/mobile/image-speaker-zx7.jpg'
+import ZX7TabletSpeaker from '/assets/home/tablet/image-speaker-zx7.jpg'
+import ZX7DesktopSpeaker from '/assets/home/desktop/image-speaker-zx7.jpg'
 // yx1 earphones
-import YX1MobileEarphones from '../assets/home/mobile/image-earphones-yx1.jpg'
-import YX1TabletEarphones from '../assets/home/tablet/image-earphones-yx1.jpg'
-import YX1DesktopEarphones from '../assets/home/desktop/image-earphones-yx1.jpg'
+import YX1MobileEarphones from '/assets/home/mobile/image-earphones-yx1.jpg'
+import YX1TabletEarphones from '/assets/home/tablet/image-earphones-yx1.jpg'
+import YX1DesktopEarphones from '/assets/home/desktop/image-earphones-yx1.jpg'
 
 export const ProductGrid = () => {
     return (

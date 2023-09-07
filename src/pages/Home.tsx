@@ -5,9 +5,9 @@ import { ModelGear } from '../components/ModelGear'
 import { DropdownMenu } from '../components/DropdownMenu'
 import { ProductGrid } from '../components/ProductGrid'
 // images
-import MobileHeader from '../assets/home/mobile/image-header.jpg'
-import TabletHeader from '../assets/home/tablet/image-header.jpg'
-import DesktopHeader from '../assets/home/desktop/image-hero.jpg'
+import MobileHeader from '/assets/home/mobile/image-header.jpg'
+import TabletHeader from '/assets/home/tablet/image-header.jpg'
+import DesktopHeader from '/assets/home/desktop/image-hero.jpg'
 
 export const Home = () => {
     return (

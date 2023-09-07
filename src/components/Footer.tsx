@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom'
 import { Links } from './Links'
 
 // icons & logo
-import Logo from '../assets/shared/desktop/logo.svg'
-import { ReactComponent as Facebook } from '../assets/shared/desktop/icon-facebook.svg'
-import { ReactComponent as Twitter } from '../assets/shared/desktop/icon-twitter.svg'
-import { ReactComponent as Instagram } from '../assets/shared/desktop/icon-instagram.svg'
+import Logo from '../svgs/logo.svg'
+import { ReactComponent as Facebook } from '../svgs/icon-facebook.svg'
+import { ReactComponent as Twitter } from '../svgs/icon-twitter.svg'
+import { ReactComponent as Instagram } from '../svgs/icon-instagram.svg'
 
 export const Footer = () => {
     return (

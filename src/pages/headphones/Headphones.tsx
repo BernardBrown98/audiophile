@@ -2,7 +2,6 @@
 import { CategoryCard } from '../../components/CategoryCard'
 import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
-
 // Mark II Imgs
 import MobileMarkIIHeadphones from '../../assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg'
 import TabletMarkIIHeadphones from '../../assets/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg'
@@ -16,6 +15,7 @@ import MobileXX59 from '../../assets/product-xx59-headphones/mobile/image-catego
 import TabletXX59 from '../../assets/product-xx59-headphones/tablet/image-category-page-preview.jpg'
 import DesktopXX59 from '../../assets/product-xx59-headphones/desktop/image-category-page-preview.jpg'
 
+import data from '../../data/products.json'
 export const Headphones = () => {
     return (
         <>
@@ -24,7 +24,21 @@ export const Headphones = () => {
             </header>
             <main className="flex flex-col items-center px-6 md:px-10">
                 <div className="flex w-full max-w-[1100px] flex-col items-center">
-                    <CategoryCard
+                    {data.headphones.map((item, index) => (
+                        <CategoryCard
+                            newProduct={item.newProduct}
+                            productTitle={item.name}
+                            mobileImg={item.imgs.categoryMobile}
+                            tabletImg={item.imgs.categoryTablet}
+                            desktopImg={item.imgs.categoryDesktop}
+                            productLink={item.link}
+                            orderReversed={index % 2 === 0 ? false : true}
+                        >
+                            {item.description}
+                        </CategoryCard>
+                    ))}
+
+                    {/* <CategoryCard
                         newProduct
                         productTitle="XX99 Mark II Headphones"
                         mobileImg={MobileMarkIIHeadphones}
@@ -55,13 +69,13 @@ export const Headphones = () => {
                         mobileImg={MobileXX59}
                         tabletImg={TabletXX59}
                         desktopImg={DesktopXX59}
-                        productLink="/headphones/xx59"
+                        productL    nk="/headphones/xx59"
                     >
                         Enjoy your audio almost anywhere and customize it to
                         your specific tastes with the XX59 headphones. The
                         stylish yet durable versatile wireless headset is a
                         brilliant companion at home or on the move.
-                    </CategoryCard>
+                    </CategoryCard> */}
                 </div>
                 <div className="mt-[100px] flex w-full flex-col items-center">
                     <DropdownMenu isDropDown={false} />

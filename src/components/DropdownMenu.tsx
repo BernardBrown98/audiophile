@@ -2,11 +2,11 @@ import clsx from 'clsx'
 // hooks
 import { useNavigate } from 'react-router-dom'
 // svgs
-import Arrow from '../assets/shared/desktop/icon-arrow-right.svg'
+import Arrow from '../svgs/icon-arrow-right.svg'
 // imgs
-import Headphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
-import Speakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
-import Earphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import Headphones from '/assets/shared/desktop/image-category-thumbnail-headphones.png'
+import Speakers from '/assets/shared/desktop/image-category-thumbnail-speakers.png'
+import Earphones from '/assets/shared/desktop/image-category-thumbnail-earphones.png'
 
 interface DropdownMenuProps {
     isActive?: boolean

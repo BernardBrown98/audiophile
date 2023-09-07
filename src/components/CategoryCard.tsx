@@ -5,9 +5,9 @@ import clsx from 'clsx'
 
 interface CategoryCardProps {
     children: React.ReactNode
-    newProduct?: true
+    newProduct?: boolean
     productTitle: string
-    orderReversed?: true
+    orderReversed?: boolean
     mobileImg: string
     tabletImg: string
     desktopImg: string

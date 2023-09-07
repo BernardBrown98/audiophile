@@ -1,8 +1,8 @@
 // hooks
 import { useState } from 'react'
 // svgs
-import { ReactComponent as Subtract } from '../../assets/shared/desktop/subtract.svg'
-import { ReactComponent as Plus } from '../../assets/shared/desktop/plus.svg'
+import { ReactComponent as Subtract } from '../../svgs/subtract.svg'
+import { ReactComponent as Plus } from '../../svgs/plus.svg'
 
 export const ItemCounter = () => {
     const [count, setCount] = useState(1)

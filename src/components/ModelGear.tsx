@@ -1,7 +1,7 @@
 // model imgs
-import MobileModel from '../assets/shared/mobile/image-best-gear.jpg'
-import TabletModel from '../assets/shared/tablet/image-best-gear.jpg'
-import DesktopModel from '../assets/shared/desktop/image-best-gear.jpg'
+import MobileModel from '/assets/shared/mobile/image-best-gear.jpg'
+import TabletModel from '/assets/shared/tablet/image-best-gear.jpg'
+import DesktopModel from '/assets/shared/desktop/image-best-gear.jpg'
 
 export const ModelGear = () => {
     return (

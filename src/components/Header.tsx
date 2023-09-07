@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom'
 import { DropdownMenu } from './DropdownMenu'
 import { Links } from './Links'
 // svgs
-import Hamburger from '../assets/shared/tablet/icon-hamburger.svg'
-import Close from '../assets/shared/tablet/icon-close.svg'
-import Logo from '../assets/shared/desktop/logo.svg'
-import Cart from '../assets/shared/desktop/icon-cart.svg'
+import Hamburger from '../svgs/icon-hamburger.svg'
+import Close from '../svgs/icon-close.svg'
+import Logo from '../svgs/logo.svg'
+import Cart from '../svgs/icon-cart.svg'
 
 interface HeaderProps {
     isActive: boolean

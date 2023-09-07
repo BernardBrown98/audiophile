@@ -4,9 +4,9 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 
 // Mark II Imgs
-import MobileYX1 from '../../assets/product-yx1-earphones/mobile/image-category-page-preview.jpg'
-import TabletYX1 from '../../assets/product-yx1-earphones/tablet/image-category-page-preview.jpg'
-import DesktopYX1 from '../../assets/product-yx1-earphones/desktop/image-category-page-preview.jpg'
+import MobileYX1 from '/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg'
+import TabletYX1 from '/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg'
+import DesktopYX1 from '/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg'
 
 export const Earphones = () => {
     return (

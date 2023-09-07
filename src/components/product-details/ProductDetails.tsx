@@ -5,7 +5,7 @@ import { ItemCounter } from '../interactables/ItemCounter'
 
 interface ProductDetailsProps {
     children: React.ReactNode
-    newProduct?: true
+    newProduct?: boolean
     productTitle: string
     mobileImg: string
     tabletImg: string

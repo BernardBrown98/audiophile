@@ -4,10 +4,10 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-// product imgs
-import Mobile from '/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg'
-import Tablet from '/assets/product-xx99-mark-two-headphones/tablet/image-product.jpg'
-import Desktop from '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg'
+
+// data
+import data from '../../data/products.json'
+
 // grid imgs
 import MobileGridGallery1 from '/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-xx99-mark-two-headphones/tablet/image-gallery-1.jpg'
@@ -30,21 +30,19 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-zx9-speaker.jpg'
 import DesktopRecomendation3 from '/assets/shared/desktop/image-zx9-speaker.jpg'
 
 export const XX99MarkII = () => {
+    const headphones = data.headphones[0]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    newProduct
-                    productTitle="XX99 Mark II Headphones"
-                    mobileImg={Mobile}
-                    tabletImg={Tablet}
-                    desktopImg={Desktop}
-                    price={2999}
+                    newProduct={headphones.newProduct}
+                    productTitle={headphones.productName}
+                    mobileImg={headphones.imgs.mobile}
+                    tabletImg={headphones.imgs.tablet}
+                    desktopImg={headphones.imgs.desktop}
+                    price={headphones.price}
                 >
-                    The new XX99 Mark II headphones is the pinnacle of pristine
-                    audio. It redefines your premium headphone experience by
-                    reproducing the balanced depth and precision of
-                    studio-quality sound.
+                    {headphones.description}
                 </ProductDetails>
                 <div className="mt-[88px] flex flex-col xl:flex-row xl:gap-[125px]">
                     <div className="xl:max-w-[635px]">

@@ -4,10 +4,10 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-// product imgs
-import Mobile from '/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg'
-import Tablet from '/assets/product-xx99-mark-one-headphones/tablet/image-product.jpg'
-import Desktop from '/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg'
+
+// data
+import data from '../../data/products.json'
+
 // grid imgs
 import MobileGridGallery1 from '/assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-xx99-mark-one-headphones/tablet/image-gallery-1.jpg'
@@ -30,21 +30,19 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-zx7-speaker.jpg'
 import DesktopRecomendation3 from '/assets/shared/desktop/image-zx7-speaker.jpg'
 
 export const XX99MarkI = () => {
+    const headphones = data.headphones[1]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    newProduct
-                    productTitle="XX99 Mark I Headphones"
-                    mobileImg={Mobile}
-                    tabletImg={Tablet}
-                    desktopImg={Desktop}
-                    price={1750}
+                    newProduct={headphones.newProduct}
+                    productTitle={headphones.productName}
+                    mobileImg={headphones.imgs.mobile}
+                    tabletImg={headphones.imgs.tablet}
+                    desktopImg={headphones.imgs.desktop}
+                    price={headphones.price}
                 >
-                    As the gold standard for headphones, the classic XX99 Mark I
-                    offers detailed and accurate audio reproduction for
-                    audiophiles, mixing engineers, and music aficionados alike
-                    in studios and on the go.
+                    {headphones.description}
                 </ProductDetails>
                 <div className="mt-[88px] flex flex-col xl:flex-row xl:gap-[125px]">
                     <div className="xl:max-w-[635px]">

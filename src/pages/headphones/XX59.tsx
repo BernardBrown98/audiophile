@@ -4,10 +4,10 @@ import { DropdownMenu } from '../../components/DropdownMenu'
 import { ModelGear } from '../../components/ModelGear'
 import { ProductGridImgs } from '../../components/product-details/ProductGridImgs'
 import { ProductRecommend } from '../../components/product-details/ProductRecommend'
-// product imgs
-import Mobile from '/assets/product-xx59-headphones/mobile/image-product.jpg'
-import Tablet from '/assets/product-xx59-headphones/tablet/image-product.jpg'
-import Desktop from '/assets/product-xx59-headphones/desktop/image-product.jpg'
+
+// data
+import data from '../../data/products.json'
+
 // grid imgs
 import MobileGridGallery1 from '/assets/product-xx59-headphones/mobile/image-gallery-1.jpg'
 import TabletGridGallery1 from '/assets/product-xx59-headphones/tablet/image-gallery-1.jpg'
@@ -30,21 +30,19 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-zx9-speaker.jpg'
 import DesktopRecomendation3 from '/assets/shared/desktop/image-zx9-speaker.jpg'
 
 export const XX59 = () => {
+    const headphones = data.headphones[2]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    newProduct
-                    productTitle={'XX59 \nHeadphones'}
-                    mobileImg={Mobile}
-                    tabletImg={Tablet}
-                    desktopImg={Desktop}
-                    price={899}
+                    newProduct={headphones.newProduct}
+                    productTitle={headphones.productName}
+                    mobileImg={headphones.imgs.mobile}
+                    tabletImg={headphones.imgs.tablet}
+                    desktopImg={headphones.imgs.desktop}
+                    price={headphones.price}
                 >
-                    Enjoy your audio almost anywhere and customize it to your
-                    specific tastes with the XX59 headphones. The stylish yet
-                    durable versatile wireless headset is a brilliant companion
-                    at home or on the move.
+                    {headphones.description}
                 </ProductDetails>
                 <div className="mt-[88px] flex flex-col xl:flex-row xl:gap-[125px]">
                     <div className="xl:max-w-[635px]">

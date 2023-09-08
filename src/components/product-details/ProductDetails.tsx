@@ -2,6 +2,8 @@
 import { useNavigate } from 'react-router-dom'
 // components
 import { ItemCounter } from '../interactables/ItemCounter'
+// utility functions
+import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface ProductDetailsProps {
     children: React.ReactNode
@@ -53,9 +55,7 @@ export const ProductDetails = ({
                     <p className="mb-6 max-w-[573px] text-p opacity-50 xl:mb-10 xl:max-w-[445px]">
                         {children}
                     </p>
-                    <p className="text-price">
-                        {'$ ' + price.toLocaleString()}
-                    </p>
+                    <p className="text-price">{formatCurrency(price)}</p>
                     <div className="mt-[31px] flex flex-row gap-4 xl:mt-[47px]">
                         <ItemCounter />
                         <button className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">

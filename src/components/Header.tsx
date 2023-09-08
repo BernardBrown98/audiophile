@@ -27,7 +27,7 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                         alt="hamburger menu"
                         onClick={handleClick}
                     />
-                    <NavLink to="/">
+                    <NavLink to="/" className="flex items-center">
                         <img
                             src={Logo}
                             className="absolute left-1/2 -translate-x-1/2 cursor-pointer md:static md:ml-[42px] md:translate-x-0 xl:ml-0"
@@ -38,11 +38,16 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                     <ul className="absolute left-1/2 hidden -translate-x-1/2 gap-[34px] text-link xl:flex">
                         <Links />
                     </ul>
-                    <img
-                        src={Cart}
-                        className="absolute right-6 cursor-pointer md:right-[39px]"
-                        alt="shopping cart icon"
-                    />
+                    <div className="absolute right-6 cursor-pointer md:right-[39px]">
+                        <img
+                            src={Cart}
+                            className="cursor-pointer"
+                            alt="shopping cart icon"
+                        />
+                        <span className="absolute right-0 flex aspect-square w-[15px] -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-nude-200">
+                            <p className="text-xs">1</p>
+                        </span>
+                    </div>
                 </div>
                 <span className="absolute bottom-0 left-0 right-0 mx-auto h-[1px] max-w-[1100px] border-0 bg-offBlack-200 md:w-[calc(100%-78px)]"></span>
             </nav>

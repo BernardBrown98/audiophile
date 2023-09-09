@@ -10,6 +10,7 @@ import { Cart } from '../components/Cart'
 
 export const Layout = () => {
     const [isActive, setIsActive] = useState(false)
+    const [isActiveCart, setIsActiveCart] = useState(false)
     const [width, setWidth] = useState(window.innerWidth)
     const [isMobile, setIsMobile] = useState(true)
 
@@ -20,9 +21,10 @@ export const Layout = () => {
         !isMobile && (document.body.style.overflow = 'visible')
     }
 
-    const handleClick = () => {
-        setIsActive((prev) => !prev)
-        isActive
+    const handleClick = (element?: 'ham' | 'cart') => {
+        element === 'ham' && setIsActive((prev) => !prev)
+        element === 'cart' && setIsActiveCart((prev) => !prev)
+        isActive || isActiveCart
             ? (document.body.style.overflow = 'visible')
             : (document.body.style.overflow = 'hidden')
     }
@@ -35,13 +37,13 @@ export const Layout = () => {
     }, [width])
 
     const opacityClasses = clsx('relative top-[89px] w-full overflow-auto', {
-        ' opacity-50': isActive,
+        ' opacity-50': isActive || isActiveCart,
     })
     return (
         <>
             <Header isActive={isActive} handleClick={handleClick} />
+            <Cart />
             <main className={opacityClasses}>
-                <Cart />
                 <Outlet />
             </main>
             <footer className="relative top-[89px] flex flex-col items-center bg-offBlack-200 pb-[38px] md:pb-[46px] xl:pb-[48px]">

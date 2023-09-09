@@ -6,6 +6,7 @@ import { ModelGear } from '../../components/ModelGear'
 // data
 import data from '../../data/products.json'
 export const Headphones = () => {
+    const headphones = data.filter((item) => item.category === 'headphones')
     return (
         <>
             <header className="md:text-tabletSubheader flex h-[102px] w-full flex-col justify-center bg-black text-center text-subHeader text-white md:h-[235px]">
@@ -13,7 +14,7 @@ export const Headphones = () => {
             </header>
             <main className="flex flex-col items-center px-6 md:px-10">
                 <div className="flex w-full max-w-[1100px] flex-col items-center">
-                    {data.headphones.map((item, index) => (
+                    {headphones.map((item, index) => (
                         <CategoryCard
                             key={item.id}
                             newProduct={item.newProduct}

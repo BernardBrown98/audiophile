@@ -12,7 +12,7 @@ import Cart from '../svgs/icon-cart.svg'
 
 interface HeaderProps {
     isActive: boolean
-    handleClick: () => void
+    handleClick: (element?: 'ham' | 'cart') => void
 }
 
 export const Header = ({ isActive, handleClick }: HeaderProps) => {
@@ -25,7 +25,7 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                         src={!isActive ? Hamburger : Close}
                         className="w aspect-square cursor-pointer xl:hidden"
                         alt="hamburger menu"
-                        onClick={handleClick}
+                        onClick={() => handleClick('ham')}
                     />
                     <NavLink to="/" className="flex items-center">
                         <img
@@ -43,6 +43,7 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                             src={Cart}
                             className="cursor-pointer"
                             alt="shopping cart icon"
+                            onClick={() => handleClick('cart')}
                         />
                         <span className="absolute right-0 flex aspect-square w-[15px] -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-nude-200">
                             <p className="text-xs">1</p>

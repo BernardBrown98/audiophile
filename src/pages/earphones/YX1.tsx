@@ -28,7 +28,7 @@ import TabletRecomendation3 from '/assets/shared/tablet/image-zx9-speaker.jpg'
 import DesktopRecomendation3 from '/assets/shared/desktop/image-zx9-speaker.jpg'
 
 export const YX1 = () => {
-    const earphones = data.earphones[0]
+    const earphones = data[5]
     return (
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">

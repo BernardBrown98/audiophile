@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom'
 // components
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { Cart } from '../components/Cart'
 
 export const Layout = () => {
     const [isActive, setIsActive] = useState(false)
@@ -40,6 +41,7 @@ export const Layout = () => {
         <>
             <Header isActive={isActive} handleClick={handleClick} />
             <main className={opacityClasses}>
+                <Cart />
                 <Outlet />
             </main>
             <footer className="relative top-[89px] flex flex-col items-center bg-offBlack-200 pb-[38px] md:pb-[46px] xl:pb-[48px]">

@@ -42,7 +42,7 @@ export const Layout = () => {
     return (
         <>
             <Header isActive={isActive} handleClick={handleClick} />
-            <Cart />
+            <Cart isActiveCart={isActiveCart} />
             <main className={opacityClasses}>
                 <Outlet />
             </main>

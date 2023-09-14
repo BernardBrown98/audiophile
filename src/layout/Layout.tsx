@@ -37,7 +37,8 @@ export const Layout = () => {
     }, [width])
 
     const opacityClasses = clsx('relative top-[89px] w-full overflow-auto', {
-        ' opacity-50': isActive || isActiveCart,
+        ' opacity-50 brightness-[.20] backdrop-blur-md':
+            isActive || isActiveCart,
     })
     return (
         <>

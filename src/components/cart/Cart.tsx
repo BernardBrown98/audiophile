@@ -24,7 +24,7 @@ export const Cart = ({ isActiveCart }: CartProps) => {
                         {cartItems.length > 1 && (
                             <p
                                 className="cursor-pointer text-p underline opacity-50 hover:text-nude-200 hover:opacity-100"
-                                onClick={() => removeAllFromCart}
+                                onClick={() => removeAllFromCart()}
                             >
                                 Remove all
                             </p>

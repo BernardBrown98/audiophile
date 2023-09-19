@@ -2,6 +2,9 @@
 import { ItemCounter } from '../interactables/ItemCounter'
 // data
 import data from '../../data/products.json'
+import { useShoppingCart } from '../../context/ShoppingCartContext'
+// svgs
+import { ReactComponent as Plus } from '../../svgs/plus.svg'
 
 interface CartItemProps {
     id: number
@@ -9,6 +12,7 @@ interface CartItemProps {
 
 export const CartItem = ({ id }: CartItemProps) => {
     const item = data[id - 1]
+    const { getQuantity } = useShoppingCart()
     return (
         <div className="flex flex-row items-center">
             <img
@@ -20,7 +24,10 @@ export const CartItem = ({ id }: CartItemProps) => {
                 <h4 className="text-p ">{item.cartName}</h4>
                 <p className="text-p font-bold opacity-50">{item.price}</p>
             </div>
-            <ItemCounter />
+            <div className="flex cursor-pointer flex-row gap-2 stroke-black">
+                <ItemCounter id={item.id} quantity={getQuantity(id)} isCart />
+                <Plus className="rotate-45 self-center" />
+            </div>
         </div>
     )
 }

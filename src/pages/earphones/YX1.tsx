@@ -33,7 +33,7 @@ export const YX1 = () => {
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    itemId={earphones.id}
+                    id={earphones.id}
                     newProduct={earphones.newProduct}
                     productTitle={earphones.productName}
                     mobileImg={earphones.imgs.mobile}

@@ -33,7 +33,7 @@ export const XX99MarkII = () => {
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
-                    itemId={headphones.id}
+                    id={headphones.id}
                     newProduct={headphones.newProduct}
                     productTitle={headphones.productName}
                     mobileImg={headphones.imgs.mobile}

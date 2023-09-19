@@ -8,7 +8,7 @@ import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface ProductDetailsProps {
-    itemId: number
+    id: number
     children: React.ReactNode
     newProduct?: boolean
     productTitle: string
@@ -19,7 +19,7 @@ interface ProductDetailsProps {
 }
 
 export const ProductDetails = ({
-    itemId,
+    id,
     children,
     newProduct,
     productTitle,
@@ -65,7 +65,7 @@ export const ProductDetails = ({
                         <ItemCounter />
                         <button
                             className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
-                            onClick={() => increaseQuantity(itemId)}
+                            onClick={() => increaseQuantity(id)}
                         >
                             ADD TO CART
                         </button>

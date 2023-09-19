@@ -2,10 +2,13 @@
 import { useNavigate } from 'react-router-dom'
 // components
 import { ItemCounter } from '../interactables/ItemCounter'
+// context
+import { useShoppingCart } from '../../context/ShoppingCartContext'
 // utility functions
 import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface ProductDetailsProps {
+    itemId: number
     children: React.ReactNode
     newProduct?: boolean
     productTitle: string
@@ -16,6 +19,7 @@ interface ProductDetailsProps {
 }
 
 export const ProductDetails = ({
+    itemId,
     children,
     newProduct,
     productTitle,
@@ -25,6 +29,7 @@ export const ProductDetails = ({
     price,
 }: ProductDetailsProps) => {
     const navigate = useNavigate()
+    const { increaseQuantity } = useShoppingCart()
     return (
         <>
             <p
@@ -58,7 +63,10 @@ export const ProductDetails = ({
                     <p className="text-price">{formatCurrency(price)}</p>
                     <div className="mt-[31px] flex flex-row gap-4 xl:mt-[47px]">
                         <ItemCounter />
-                        <button className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">
+                        <button
+                            className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
+                            onClick={() => increaseQuantity(itemId)}
+                        >
                             ADD TO CART
                         </button>
                     </div>

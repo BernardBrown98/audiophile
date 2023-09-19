@@ -33,6 +33,7 @@ export const ZX7 = () => {
         <main className="flex flex-col items-center px-6 md:px-10">
             <div className="w-full max-w-[1100px]">
                 <ProductDetails
+                    itemId={speakers.id}
                     newProduct={speakers.newProduct}
                     productTitle={speakers.productName}
                     mobileImg={speakers.imgs.mobile}

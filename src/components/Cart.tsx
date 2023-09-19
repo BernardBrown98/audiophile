@@ -9,7 +9,9 @@ interface CartProps {
 export const Cart = ({ isActiveCart }: CartProps) => {
     const cartClasses = clsx(
         'fixed top-[113px] z-50 flex min-h-[486px] w-full flex-col items-center px-6 md:px-10',
-        { hidden: !isActiveCart }
+        {
+            hidden: !isActiveCart,
+        }
     )
 
     return (

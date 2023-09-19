@@ -15,10 +15,11 @@ import { XX59 } from './pages/headphones/XX59'
 import { ZX9 } from './pages/speakers/ZX9'
 import { ZX7 } from './pages/speakers/ZX7'
 import { YX1 } from './pages/earphones/YX1'
+import { ShoppingCartProvider } from './context/ShoppingCartContext'
 function App() {
     useScrollToTop()
     return (
-        <div>
+        <ShoppingCartProvider>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
@@ -39,7 +40,7 @@ function App() {
                     <Route path="/earphones/yx1" element={<YX1 />} />
                 </Route>
             </Routes>
-        </div>
+        </ShoppingCartProvider>
     )
 }
 export default App

@@ -24,9 +24,9 @@ export const CartItem = ({ id }: CartItemProps) => {
                 <h4 className="text-p ">{item.cartName}</h4>
                 <p className="text-p font-bold opacity-50">{item.price}</p>
             </div>
-            <div className="flex cursor-pointer flex-row gap-2 stroke-black">
+            <div className="flex cursor-pointer flex-row stroke-black">
                 <ItemCounter id={item.id} quantity={getQuantity(id)} isCart />
-                <Plus className="rotate-45 self-center" />
+                <Plus className="ml-1 rotate-45 self-center" />
             </div>
         </div>
     )

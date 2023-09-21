@@ -32,7 +32,7 @@ export const Cart = ({ isActiveCart }: CartProps) => {
                     </div>
                     <section className="flex max-h-[256px] flex-col gap-8 overflow-y-auto">
                         {cartItems.map((item) => (
-                            <CartItem id={item.id} />
+                            <CartItem id={item.id} key={item.id} />
                         ))}
                     </section>
 

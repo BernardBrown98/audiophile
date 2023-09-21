@@ -6,8 +6,10 @@ type ShoppingCartProviderProps = {
 
 type ShoppingCartContext = {
     getQuantity: (id: number) => number
+    cartCount: () => number
     increaseQuantity: (id: number, amount: number) => void
     decreaseQuantity: (id: number) => void
+    removeFromCart: (id: number) => void
     removeAllFromCart: () => void
     cartItems: CartItem[]
 }
@@ -38,7 +40,7 @@ export const ShoppingCartProvider = ({
             } else {
                 return currItems.map((item) => {
                     if (item.id === id) {
-                        return { ...item, quantity: item.quantity + 1 }
+                        return { ...item, quantity: amount }
                     } else {
                         return item
                     }
@@ -62,7 +64,17 @@ export const ShoppingCartProvider = ({
         })
     }
 
+    const removeFromCart = (id: number) => {
+        setCartItems((currItems) => {
+            return currItems.filter((item) => item.id !== id)
+        })
+    }
+
     const removeAllFromCart = () => setCartItems([])
+
+    const cartCount = () => {
+        return cartItems.reduce((item, cur) => item + cur.quantity, 0)
+    }
 
     return (
         <CartContext.Provider
@@ -70,7 +82,9 @@ export const ShoppingCartProvider = ({
                 getQuantity,
                 increaseQuantity,
                 decreaseQuantity,
+                removeFromCart,
                 removeAllFromCart,
+                cartCount,
                 cartItems,
             }}
         >

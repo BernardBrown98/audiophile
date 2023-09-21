@@ -1,9 +1,10 @@
 // hooks
 import { NavLink } from 'react-router-dom'
-
 // components
 import { DropdownMenu } from './DropdownMenu'
 import { Links } from './Links'
+// context
+import { useShoppingCart } from '../context/ShoppingCartContext'
 // svgs
 import Hamburger from '../svgs/icon-hamburger.svg'
 import Close from '../svgs/icon-close.svg'
@@ -16,6 +17,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ isActive, handleClick }: HeaderProps) => {
+    const { cartCount } = useShoppingCart()
     return (
         <>
             {/* navbar */}
@@ -45,9 +47,11 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                             alt="shopping cart icon"
                             onClick={() => handleClick('cart')}
                         />
-                        <span className="absolute right-0 flex aspect-square w-[15px] -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-nude-200">
-                            <p className="text-xs">1</p>
-                        </span>
+                        {cartCount() > 0 && (
+                            <span className="absolute right-0 flex aspect-square w-[15px] -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-nude-200">
+                                <p className="text-xs">{cartCount()}</p>
+                            </span>
+                        )}
                     </div>
                 </div>
                 <span className="absolute bottom-0 left-0 right-0 mx-auto h-[1px] max-w-[1100px] border-0 bg-offBlack-200 md:w-[calc(100%-78px)]"></span>

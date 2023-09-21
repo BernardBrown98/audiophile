@@ -2,6 +2,7 @@
 import { ItemCounter } from '../interactables/ItemCounter'
 // data
 import data from '../../data/products.json'
+// context
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 // svgs
 import { ReactComponent as Plus } from '../../svgs/plus.svg'
@@ -11,6 +12,7 @@ interface CartItemProps {
 }
 
 export const CartItem = ({ id }: CartItemProps) => {
+    const { removeFromCart } = useShoppingCart()
     const item = data[id - 1]
     const { getQuantity } = useShoppingCart()
     return (
@@ -24,9 +26,12 @@ export const CartItem = ({ id }: CartItemProps) => {
                 <h4 className="text-p ">{item.cartName}</h4>
                 <p className="text-p font-bold opacity-50">{item.price}</p>
             </div>
-            <div className="flex cursor-pointer flex-row stroke-black">
+            <div className="mr-1 flex cursor-pointer flex-row stroke-black">
                 <ItemCounter id={item.id} quantity={getQuantity(id)} isCart />
-                <Plus className="ml-1 rotate-45 self-center" />
+                <Plus
+                    onClick={() => removeFromCart(id)}
+                    className="ml-2 rotate-45 self-center opacity-50 hover:stroke-nude-200 hover:opacity-100"
+                />
             </div>
         </div>
     )

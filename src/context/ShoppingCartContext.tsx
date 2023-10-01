@@ -62,6 +62,13 @@ export const ShoppingCartProvider = ({
                 return [...currItems, { id, quantity: amount === 1 ? 2 : 1 }]
             }
             // const updatedItems = [...currItems]
+            console.log(
+                currItems.map((item) =>
+                    item.id === id
+                        ? { ...item, quantity: item.quantity + amount }
+                        : item
+                )
+            )
             return currItems.map((item) =>
                 item.id === id
                     ? { ...item, quantity: item.quantity + amount }
@@ -86,6 +93,10 @@ export const ShoppingCartProvider = ({
     //     })
     // }
     const addToCart = (id: number, amount: number) => {
+        if (queCartItems.find((item) => item.id === id) === undefined)
+            setQueCartItems(() => {
+                return [...queCartItems, { id, quantity: amount }]
+            })
         setCartItems(() => {
             return queCartItems.find((item) => item.id === id) === undefined
                 ? [...queCartItems, { id, quantity: amount }]
@@ -126,7 +137,7 @@ export const ShoppingCartProvider = ({
 
         const commonItems = queCartItems.filter((item) => {
             const id = item.id
-            return cartItems.length === 1
+            return cartItems.length <= 1
                 ? cartItems
                 : cartItems.some((item) => item.id === id)
         })

@@ -14,7 +14,6 @@ interface CartItemProps {
 export const CartItem = ({ id }: CartItemProps) => {
     const { removeFromCart } = useShoppingCart()
     const item = data[id - 1]
-    const { getQuantity } = useShoppingCart()
     return (
         <div className="flex flex-row items-center">
             <img
@@ -27,7 +26,7 @@ export const CartItem = ({ id }: CartItemProps) => {
                 <p className="text-p font-bold opacity-50">{item.price}</p>
             </div>
             <div className="mr-1 flex cursor-pointer flex-row stroke-black">
-                <ItemCounter id={item.id} quantity={getQuantity(id)} isCart />
+                <ItemCounter id={item.id} isCart />
                 <Plus
                     onClick={() => removeFromCart(id)}
                     className="ml-2 rotate-45 self-center opacity-50 hover:stroke-nude-200 hover:opacity-100"

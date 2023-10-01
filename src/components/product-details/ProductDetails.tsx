@@ -2,7 +2,6 @@
 import { useNavigate } from 'react-router-dom'
 // components
 import { ItemCounter } from '../interactables/ItemCounter'
-
 // utility functions
 import { formatCurrency } from '../../utilities/formatCurrency'
 

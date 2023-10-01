@@ -1,4 +1,5 @@
 // hooks
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 // components
 import { DropdownMenu } from './DropdownMenu'
@@ -17,7 +18,22 @@ interface HeaderProps {
 }
 
 export const Header = ({ isActive, handleClick }: HeaderProps) => {
-    const { cartCount } = useShoppingCart()
+    // CLEAN //// FIX THIS
+    const { cartCount, commonItems, cartItems, queCartItems } =
+        useShoppingCart()
+    const [count, setCount] = useState(0)
+    // console.log(queCartItems)
+    // useEffect(() => {
+    //     cartCount()
+    //     setCount(() => {
+    //         console.log('loaded')
+    //         return commonItems.reduce((item, cur) => item + cur.quantity, 0)
+    //     })
+    //     console.log(count)
+    // }, [queCartItems])
+
+    // const count = commonItems.reduce((item, cur) => item + cur.quantity, 0)
+    // console.log(count)
     return (
         <>
             {/* navbar */}

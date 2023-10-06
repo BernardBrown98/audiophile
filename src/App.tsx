@@ -3,6 +3,8 @@ import './App.css'
 // hooks
 import { useScrollToTop } from './hooks/useScrollToTop'
 import { Routes, Route } from 'react-router-dom'
+// context provider
+import { ShoppingCartProvider } from './context/ShoppingCartContext'
 // pages
 import { Home } from './pages/Home'
 import { Headphones } from './pages/headphones/Headphones'
@@ -15,7 +17,7 @@ import { XX59 } from './pages/headphones/XX59'
 import { ZX9 } from './pages/speakers/ZX9'
 import { ZX7 } from './pages/speakers/ZX7'
 import { YX1 } from './pages/earphones/YX1'
-import { ShoppingCartProvider } from './context/ShoppingCartContext'
+import { Checkout } from './pages/Checkout'
 function App() {
     useScrollToTop()
     return (
@@ -38,6 +40,7 @@ function App() {
                     <Route path="/speakers/zx9" element={<ZX9 />} />
                     <Route path="/speakers/zx7" element={<ZX7 />} />
                     <Route path="/earphones/yx1" element={<YX1 />} />
+                    <Route path="/checkout" element={<Checkout />} />
                 </Route>
             </Routes>
         </ShoppingCartProvider>

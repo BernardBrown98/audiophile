@@ -29,7 +29,11 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                         alt="hamburger menu"
                         onClick={() => handleClick('ham')}
                     />
-                    <NavLink to="/" className="flex items-center">
+                    <NavLink
+                        to="/"
+                        className="flex items-center"
+                        onClick={() => handleClick()}
+                    >
                         <img
                             src={Logo}
                             className="absolute left-1/2 -translate-x-1/2 cursor-pointer md:static md:ml-[42px] md:translate-x-0 xl:ml-0"

@@ -33,6 +33,10 @@ export const Layout = () => {
             setIsActiveCart((prev) => !prev)
             if (isActive) setIsActive((prev) => !prev)
         }
+        // if either hamburger menu or cart is open and logo is clicked the overlay will be closed
+        if (element === undefined && isActiveCart)
+            setIsActiveCart((prev) => !prev)
+        if (element === undefined && isActive) setIsActive((prev) => !prev)
 
         isActive || isActiveCart
             ? (document.body.style.overflow = 'visible')
@@ -46,10 +50,13 @@ export const Layout = () => {
         }
     }, [width])
 
-    const opacityClasses = clsx('relative top-[89px] w-full overflow-auto', {
-        ' opacity-50 brightness-[.20] backdrop-blur-md':
-            isActive || isActiveCart,
-    })
+    const opacityClasses = clsx(
+        'relative top-[89px] w-full overflow-auto bg-offWhite-200',
+        {
+            ' opacity-50 brightness-[.20] backdrop-blur-md':
+                isActive || isActiveCart,
+        }
+    )
     return (
         <>
             <Header isActive={isActive} handleClick={handleClick} />

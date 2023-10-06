@@ -17,7 +17,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ isActive, handleClick }: HeaderProps) => {
-    const { cartCount } = useShoppingCart()
+    const { cartUtilities } = useShoppingCart()
     return (
         <>
             {/* navbar */}
@@ -47,9 +47,11 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                             alt="shopping cart icon"
                             onClick={() => handleClick('cart')}
                         />
-                        {cartCount() > 0 && (
+                        {cartUtilities('count') > 0 && (
                             <span className="absolute right-0 flex aspect-square w-[15px] -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-nude-200">
-                                <p className="text-xs">{cartCount()}</p>
+                                <p className="text-xs">
+                                    {cartUtilities('count')}
+                                </p>
                             </span>
                         )}
                     </div>

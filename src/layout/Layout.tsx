@@ -22,8 +22,18 @@ export const Layout = () => {
     }
 
     const handleClick = (element?: 'ham' | 'cart') => {
-        element === 'ham' && setIsActive((prev) => !prev)
-        element === 'cart' && setIsActiveCart((prev) => !prev)
+        // if hamburger icon is clicked dropwdown menu
+        if (element === 'ham') {
+            setIsActive((prev) => !prev)
+            // if dropdownmenu is active and cart icon is clicked hide dropdown menu
+            if (isActiveCart) setIsActiveCart((prev) => !prev)
+        }
+        // vice versa functionality from block above
+        if (element === 'cart') {
+            setIsActiveCart((prev) => !prev)
+            if (isActive) setIsActive((prev) => !prev)
+        }
+
         isActive || isActiveCart
             ? (document.body.style.overflow = 'visible')
             : (document.body.style.overflow = 'hidden')

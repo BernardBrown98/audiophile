@@ -11,7 +11,7 @@ import Earphones from '/assets/shared/desktop/image-category-thumbnail-earphones
 interface DropdownMenuProps {
     isActive?: boolean
     isDropDown: boolean
-    handleClick?: () => void
+    handleClick?: (element: 'ham') => void
 }
 
 export const DropdownMenu = ({
@@ -37,7 +37,7 @@ export const DropdownMenu = ({
     )
 
     const handleNavigate = (param: string) => {
-        isActive && handleClick && handleClick()
+        isActive && handleClick && handleClick('ham')
         navigate(`/${param}`)
     }
 

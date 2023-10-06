@@ -59,7 +59,7 @@ export const ProductDetails = ({
                     </p>
                     <p className="text-price">{formatCurrency(price)}</p>
                     <div className="mt-[31px] flex flex-row gap-4 xl:mt-[47px]">
-                        <ItemCounter id={id} />
+                        <ItemCounter id={id} price={price} />
                     </div>
                 </div>
             </div>

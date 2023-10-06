@@ -6,6 +6,7 @@ import { ReactComponent as Plus } from '../../svgs/plus.svg'
 
 interface ItemCounterProps {
     id: number
+    price: number
     isCart?: boolean
 }
 
@@ -43,9 +44,11 @@ interface ItemCounterProps {
 //         </>
 //     )
 // }
-export const ItemCounter = ({ id, isCart }: ItemCounterProps) => {
+export const ItemCounter = ({ id, isCart, price }: ItemCounterProps) => {
     const { increaseQuantity, getQuantity, addToCart, decreaseQuantity } =
         useShoppingCart()
+    console.log(id)
+    console.log(price)
     return (
         <>
             <div className="flex items-center justify-center bg-offWhite-100 p-[15.5px] text-shop">
@@ -55,14 +58,16 @@ export const ItemCounter = ({ id, isCart }: ItemCounterProps) => {
                 />
                 <span>{getQuantity(id, 'que')}</span>
                 <Plus
-                    onClick={() => increaseQuantity(id, 1)}
+                    onClick={() => increaseQuantity(id, 1, price!)}
                     className="ml-[21px] cursor-pointer stroke-black opacity-50 transition-all ease-in-out hover:stroke-nude-200 hover:opacity-100"
                 />
             </div>
             {!isCart && (
                 <button
                     className="bg-nude-200 px-[31.5px] py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
-                    onClick={() => addToCart(id, getQuantity(id, 'que'))}
+                    onClick={() =>
+                        addToCart(id, getQuantity(id, 'que'), price!)
+                    }
                 >
                     ADD TO CART
                 </button>

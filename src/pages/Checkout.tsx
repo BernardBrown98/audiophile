@@ -1,3 +1,6 @@
+// components
+import { Form } from '../components/form/Form'
+// router hooks
 import { useNavigate } from 'react-router-dom'
 
 export const Checkout = () => {
@@ -12,14 +15,7 @@ export const Checkout = () => {
                 >
                     Go Back
                 </p>
-                <form className="px-6 md:px-7 xl:px-12">
-                    <h2 className="mt-6 text-subHeader  md:mt-[30px] md:text-desktopSubheader xl:mt-[54px]">
-                        CHECKOUT
-                    </h2>
-                    <h3 className="mt-8 text-nude-200 md:mt-10">
-                        BILLING DETAILS
-                    </h3>
-                </form>
+                <Form />
             </div>
         </div>
     )

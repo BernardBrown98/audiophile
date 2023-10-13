@@ -62,6 +62,21 @@ export default {
                         fontWeight: '400',
                     },
                 ],
+                label: [
+                    '12px',
+                    {
+                        fontWeight: '700',
+                        letterSpacing: '-0.214px',
+                    },
+                ],
+
+                formInput: [
+                    '14px',
+                    {
+                        letterSpacing: '-0.25px',
+                        fontWeight: '700',
+                    },
+                ],
                 mobileHeader: [
                     '36px',
                     {

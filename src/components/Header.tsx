@@ -32,7 +32,7 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                     <NavLink
                         to="/"
                         className="flex items-center"
-                        onClick={() => handleClick()}
+                        // onClick={() => handleClick()}
                     >
                         <img
                             src={Logo}

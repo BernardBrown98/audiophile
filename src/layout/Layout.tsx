@@ -34,9 +34,14 @@ export const Layout = () => {
             if (isActive) setIsActive((prev) => !prev)
         }
         // if either hamburger menu or cart is open and logo is clicked the overlay will be closed
-        if (element === undefined && isActiveCart)
+        if (element === undefined && isActiveCart) {
             setIsActiveCart((prev) => !prev)
-        if (element === undefined && isActive) setIsActive((prev) => !prev)
+            console.log('im here')
+        }
+        if (element === undefined && isActive) {
+            console.log('im here')
+            setIsActive((prev) => !prev)
+        }
 
         isActive || isActiveCart
             ? (document.body.style.overflow = 'visible')

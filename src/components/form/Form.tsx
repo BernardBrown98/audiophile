@@ -7,7 +7,7 @@ type input = {
 }
 
 export const Form = () => {
-    const [inputs, setInput] = useState<input>({})
+    const [inputs, setInput] = useState<input>({ payment: 'e-money' })
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log(inputs)
@@ -92,6 +92,33 @@ export const Form = () => {
                         placeholder="United States"
                         handleChange={handleChange}
                         value={inputs.country || ''}
+                    />
+                    {/* <FormInput label="Email Address" placeholder="username" /> */}
+                    {/* <FormInput label="Phone Number" placeholder="username" /> */}
+                </div>
+            </div>
+            <div className="mt-8 md:mt-10">
+                <h3 className="text-link tracking-[0.929px] text-nude-200">
+                    PAYMENT DETAILS
+                </h3>
+                <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2">
+                    <FormInput
+                        name="payment"
+                        label="e-Money"
+                        placeholder="1800 Mcnab Avenue"
+                        handleChange={handleChange}
+                        value={'e-money'}
+                        type="radio"
+                        checked={inputs.payment === 'e-money'}
+                    />
+                    <FormInput
+                        name="payment"
+                        label="Cash On Delivery"
+                        placeholder="1800 Mcnab Avenue"
+                        handleChange={handleChange}
+                        value={'cash'}
+                        type="radio"
+                        checked={inputs.payment === 'cash'}
                     />
                     {/* <FormInput label="Email Address" placeholder="username" /> */}
                     {/* <FormInput label="Phone Number" placeholder="username" /> */}

@@ -1,6 +1,8 @@
 // components
 import { useState } from 'react'
 import { FormInput } from './FormInput'
+// svgs
+import CashOnDelivery from '../../svgs/icon-cash-on-delivery.svg'
 
 type input = {
     [name: string]: string
@@ -8,6 +10,7 @@ type input = {
 
 export const Form = () => {
     const [inputs, setInput] = useState<input>({ payment: 'e-money' })
+    const isEMoney = inputs.payment === 'e-money'
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log(inputs)
@@ -101,28 +104,60 @@ export const Form = () => {
                 <h3 className="text-link tracking-[0.929px] text-nude-200">
                     PAYMENT DETAILS
                 </h3>
-                <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2">
-                    <FormInput
-                        name="payment"
-                        label="e-Money"
-                        placeholder="1800 Mcnab Avenue"
-                        handleChange={handleChange}
-                        value={'e-money'}
-                        type="radio"
-                        checked={inputs.payment === 'e-money'}
-                    />
-                    <FormInput
-                        name="payment"
-                        label="Cash On Delivery"
-                        placeholder="1800 Mcnab Avenue"
-                        handleChange={handleChange}
-                        value={'cash'}
-                        type="radio"
-                        checked={inputs.payment === 'cash'}
-                    />
-                    {/* <FormInput label="Email Address" placeholder="username" /> */}
-                    {/* <FormInput label="Phone Number" placeholder="username" /> */}
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                    <h4 className="mt-4 text-label">Payment Method</h4>
+                    <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-6 ">
+                        <FormInput
+                            name="payment"
+                            label="e-Money"
+                            handleChange={handleChange}
+                            value={'e-money'}
+                            type="radio"
+                            checked={isEMoney}
+                        />
+                        <FormInput
+                            name="payment"
+                            label="Cash On Delivery"
+                            handleChange={handleChange}
+                            value={'cash'}
+                            type="radio"
+                            checked={!isEMoney}
+                        />
+                        {/* <FormInput label="Email Address" placeholder="username" /> */}
+                        {/* <FormInput label="Phone Number" placeholder="username" /> */}
+                    </div>
                 </div>
+                {isEMoney && (
+                    <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-6">
+                        <FormInput
+                            name="e_number"
+                            label="e-Money Number"
+                            placeholder="736421993"
+                            handleChange={handleChange}
+                            value={inputs.e_number || ''}
+                        />
+                        <FormInput
+                            name="e_pin"
+                            label="Cash On Delivery"
+                            placeholder="3256"
+                            handleChange={handleChange}
+                            value={inputs.e_pin || ''}
+                        />
+                        {/* <FormInput label="Email Address" placeholder="username" /> */}
+                        {/* <FormInput label="Phone Number" placeholder="username" /> */}
+                    </div>
+                )}
+                {!isEMoney && (
+                    <div className="mt-[30px] flex items-center gap-8">
+                        <img src={CashOnDelivery} alt="" />
+                        <p className="text-p opacity-60">
+                            The ‘Cash on Delivery’ option enables you to pay in
+                            cash when our delivery courier arrives at your
+                            residence. Just make sure your address is correct so
+                            that your order will not be cancelled.
+                        </p>
+                    </div>
+                )}
             </div>
         </form>
     )

@@ -11,7 +11,7 @@ export const Checkout = () => {
             <div className="w-full max-w-[1100px]">
                 <p
                     onClick={() => navigate(-1)}
-                    className="mb-6 mt-4 cursor-pointer text-p opacity-50 md:mt-[33px] xl:mb-14 xl:mt-[79px]"
+                    className="mb-6 mt-4 cursor-pointer text-p opacity-50 hover:text-nude-200 hover:opacity-100 md:mt-[33px] xl:mb-14 xl:mt-[79px]"
                 >
                     Go Back
                 </p>

@@ -21,6 +21,7 @@ export default {
                     200: '#FAFAFA',
                     300: '#F1F1F1',
                 },
+                error: '#CD2C2C',
             },
             fontSize: {
                 link: [

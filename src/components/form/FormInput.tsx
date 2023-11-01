@@ -1,12 +1,15 @@
 interface FormInputProps {
-    type?: 'password' | 'radio' | 'email'
+    type?: 'tel' | 'radio' | 'email' | 'number'
     checked?: boolean
     className?: string
     placeholder?: string
     label: string
+    errorMsg?: string
     name: string
     value: string
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    error?: boolean
+    maxLength?: number
 }
 
 export const FormInput = ({
@@ -15,25 +18,38 @@ export const FormInput = ({
     className,
     placeholder,
     label,
+    errorMsg,
     handleChange,
     name,
     value,
+    error,
 }: FormInputProps) => {
     return type !== 'radio' ? (
         // type !== 'radio' ...
         <label
-            className={`flex cursor-pointer flex-col text-label ${className}`}
+            className={`group relative flex cursor-pointer flex-col text-label ${className} ${
+                error && value === '' && 'text-black'
+            } ${error && value !== '' && 'text-error focus-within:text-black'}`}
         >
             {label}
+
             <input
                 value={value}
                 name={name}
-                className=" mt-[9px] cursor-pointer rounded-lg border-[1.7px] border-[#CFCFCF] px-6 py-[18px] text-formInput caret-nude-200 outline-none placeholder:opacity-60 focus:border-nude-200 active:border-nude-200"
+                className={`group peer mt-[9px] cursor-pointer rounded-lg border-[1.7px] border-[#CFCFCF]  px-6 py-[18px] text-formInput text-black caret-nude-200 outline-none placeholder:opacity-60  focus:border-nude-200 active:border-nude-200 ${
+                    error && value !== '' ? 'border-error' : 'border-[#CFCFCF]'
+                }`}
                 onChange={handleChange}
                 placeholder={placeholder}
                 type={type}
                 checked={checked}
+                required
             />
+            {error && (
+                <span className="absolute right-0 text-error peer-placeholder-shown:hidden peer-focus:hidden">
+                    {errorMsg}
+                </span>
+            )}
         </label>
     ) : (
         // type === 'radio' ...

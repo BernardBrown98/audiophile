@@ -8,21 +8,55 @@ type input = {
     [name: string]: string
 }
 
+type error = {
+    [name: string]: boolean
+}
+
+type validation = {
+    [index: string]: (input: string) => boolean
+}
+
 export const Form = () => {
     const [inputs, setInput] = useState<input>({ payment: 'e-money' })
+    const [errors, setErrors] = useState<error>({})
     const isEMoney = inputs.payment === 'e-money'
+
+    const validations: validation = {
+        email: (input: string): boolean => /^\S+@\S+\.\S+$/.test(input),
+        number: (input: string): boolean =>
+            /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(
+                input
+            ),
+        zip: (input: string): boolean =>
+            /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(input),
+        e_number: (input: string): boolean => /\d{9}/.test(input),
+        e_pin: (input: string): boolean => /\d{4}/.test(input),
+    }
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log(inputs)
     }
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.name
         const value = event.target.value
+        console.log(inputs)
+
         setInput((prevInput) => {
             return { ...prevInput, [name]: value }
         })
+        if (name in validations) {
+            setErrors((prevErrors) => {
+                return {
+                    ...prevErrors,
+                    [name]: validations[name](inputs[name]),
+                }
+            })
+        }
     }
-    console.log(inputs)
+    console.log(errors)
+    // console.log(inputs)
 
     return (
         <form
@@ -43,20 +77,27 @@ export const Form = () => {
                         placeholder="Ken Williams"
                         handleChange={handleChange}
                         value={inputs.name || ''}
+                        errorMsg="Invalid Name"
                     />
                     <FormInput
                         name="email"
+                        type="email"
                         label="Email Address"
                         placeholder="kenwill@mail.com"
                         handleChange={handleChange}
                         value={inputs.email || ''}
+                        errorMsg="Wrong Format"
+                        error={!validations.email(inputs.email)}
                     />
                     <FormInput
                         name="number"
+                        type="tel"
                         label="Phone Number"
                         placeholder="+1 786-222-0123"
                         handleChange={handleChange}
                         value={inputs.number || ''}
+                        errorMsg="Invalid Number"
+                        error={!validations.number(inputs.number)}
                     />
                     {/* <FormInput label="Email Address" placeholder="username" /> */}
                     {/* <FormInput label="Phone Number" placeholder="username" /> */}
@@ -81,6 +122,8 @@ export const Form = () => {
                         placeholder="32382"
                         handleChange={handleChange}
                         value={inputs.zip || ''}
+                        errorMsg="Wrong Format"
+                        error={!validations.zip(inputs.zip)}
                     />
                     <FormInput
                         name="city"
@@ -131,17 +174,23 @@ export const Form = () => {
                     <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-6">
                         <FormInput
                             name="e_number"
+                            type="number"
                             label="e-Money Number"
                             placeholder="736421993"
                             handleChange={handleChange}
-                            value={inputs.e_number || ''}
+                            value={inputs.e_number?.slice(0, 9) || ''}
+                            errorMsg="Wrong Format"
+                            error={!validations.e_number(inputs.e_number)}
                         />
                         <FormInput
                             name="e_pin"
+                            type="number"
                             label="Cash On Delivery"
                             placeholder="3256"
                             handleChange={handleChange}
-                            value={inputs.e_pin || ''}
+                            value={inputs.e_pin?.slice(0, 4) || ''}
+                            errorMsg="Wrong Format"
+                            error={!validations.e_pin(inputs.e_pin)}
                         />
                         {/* <FormInput label="Email Address" placeholder="username" /> */}
                         {/* <FormInput label="Phone Number" placeholder="username" /> */}
@@ -159,6 +208,7 @@ export const Form = () => {
                     </div>
                 )}
             </div>
+            <button> submit</button>
         </form>
     )
 }

@@ -8,17 +8,12 @@ type input = {
     [name: string]: string
 }
 
-type error = {
-    [name: string]: boolean
-}
-
 type validation = {
     [index: string]: (input: string) => boolean
 }
 
 export const Form = () => {
     const [inputs, setInput] = useState<input>({ payment: 'e-money' })
-    const [errors, setErrors] = useState<error>({})
     const isEMoney = inputs.payment === 'e-money'
 
     const validations: validation = {
@@ -35,28 +30,16 @@ export const Form = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(inputs)
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.name
         const value = event.target.value
-        console.log(inputs)
 
         setInput((prevInput) => {
             return { ...prevInput, [name]: value }
         })
-        if (name in validations) {
-            setErrors((prevErrors) => {
-                return {
-                    ...prevErrors,
-                    [name]: validations[name](inputs[name]),
-                }
-            })
-        }
     }
-    console.log(errors)
-    // console.log(inputs)
 
     return (
         <form

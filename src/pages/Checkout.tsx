@@ -1,6 +1,5 @@
 // components
 import { Form } from '../components/form/Form'
-import { Summary } from '../components/form/Summary'
 // router hooks
 import { useNavigate } from 'react-router-dom'
 
@@ -17,7 +16,6 @@ export const Checkout = () => {
                     Go Back
                 </p>
                 <Form />
-                <Summary />
             </div>
         </div>
     )

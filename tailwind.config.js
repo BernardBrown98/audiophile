@@ -3,7 +3,7 @@ export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         fontFamily: {
-            body: 'Manrope, sans-serif',
+            sans: 'Manrope, sans-serif',
         },
         extend: {
             colors: {

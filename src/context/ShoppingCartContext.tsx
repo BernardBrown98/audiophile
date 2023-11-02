@@ -6,7 +6,7 @@ type ShoppingCartProviderProps = {
 
 type ShoppingCartContext = {
     getQuantity: (id: number, cart: 'cart' | 'que') => number
-    cartUtilities: (utility: 'count' | 'price') => number
+    cartUtilities: (utility: 'count' | 'price' | 'vat' | 'grandTotal') => number
     increaseQuantity: (id: number, amount: number, price: number) => void
     decreaseQuantity: (id: number) => void
     addToCart: (id: number, amount: number, price: number) => void
@@ -36,7 +36,11 @@ export const ShoppingCartProvider = ({
         { id: 2, quantity: 2, price: 250 },
         { id: 2, quantity: 2, price: 250 },
     ])
-    const [queCartItems, setQueCartItems] = useState<CartItem[]>([])
+    const [queCartItems, setQueCartItems] = useState<CartItem[]>([
+        { id: 2, quantity: 2, price: 250 },
+        { id: 2, quantity: 2, price: 250 },
+        { id: 2, quantity: 2, price: 250 },
+    ])
     const getQuantity = (id: number, cart: 'cart' | 'que') => {
         return cart === 'cart'
             ? cartItems.find((item) => item.id === id)?.quantity || 1
@@ -107,19 +111,30 @@ export const ShoppingCartProvider = ({
         setQueCartItems([])
     }
 
-    const cartUtilities = (utility: 'count' | 'price') => {
+    const cartUtilities = (
+        utility: 'count' | 'price' | 'vat' | 'grandTotal'
+    ) => {
         const commonItems = queCartItems.filter((item) => {
             const id = item.id
             if (cartItems.length >= 1)
                 return cartItems.some((item) => item.id === id)
         })
-        // console.log(commonItems)
-        return utility === 'count'
-            ? commonItems.reduce((item, cur) => item + cur.quantity, 0)
-            : commonItems.reduce(
-                  (item, cur) => item + cur.price * cur.quantity,
-                  0
-              )
+        const price = commonItems.reduce(
+            (item, cur) => item + cur.price * cur.quantity,
+            0
+        )
+        if (utility === 'count')
+            return commonItems.reduce((item, cur) => item + cur.quantity, 0)
+        else if (utility === 'price') return price
+        else if (utility === 'vat') return price * 0.2
+        else return price + 50
+
+        // return utility === 'count'
+        //     ? commonItems.reduce((item, cur) => item + cur.quantity, 0)
+        //     : commonItems.reduce(
+        //           (item, cur) => item + cur.price * cur.quantity,
+        //           0
+        //       )
     }
 
     return (

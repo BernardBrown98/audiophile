@@ -1,7 +1,12 @@
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { CartItem } from '../cart/CartItem'
 import { formatCurrency } from '../../utilities/formatCurrency'
-export const Summary = () => {
+
+interface SummaryProps {
+    isEMoney: boolean
+}
+
+export const Summary = ({ isEMoney }: SummaryProps) => {
     const { cartItems, cartUtilities } = useShoppingCart()
 
     return (
@@ -41,7 +46,7 @@ export const Summary = () => {
                 </div>
             </div>
             <button className="mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">
-                CONTINUE & PAY
+                {isEMoney ? 'CONTINUE & PAY' : 'CONTINUE'}
             </button>
         </div>
     )

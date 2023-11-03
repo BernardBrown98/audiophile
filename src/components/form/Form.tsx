@@ -42,7 +42,6 @@ export const Form = () => {
             return { ...prevInput, [name]: value }
         })
     }
-    console.log(inputs)
 
     return (
         <form
@@ -197,7 +196,7 @@ export const Form = () => {
                     )}
                 </div>
             </div>
-            <Summary />
+            <Summary isEMoney={isEMoney} />
         </form>
     )
 }

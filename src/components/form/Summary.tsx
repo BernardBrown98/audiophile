@@ -3,10 +3,11 @@ import { CartItem } from '../cart/CartItem'
 import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface SummaryProps {
+    buttonVisibility: boolean
     isEMoney: boolean
 }
 
-export const Summary = ({ isEMoney }: SummaryProps) => {
+export const Summary = ({ isEMoney, buttonVisibility }: SummaryProps) => {
     const { cartItems, cartUtilities } = useShoppingCart()
 
     return (
@@ -45,7 +46,12 @@ export const Summary = ({ isEMoney }: SummaryProps) => {
                     </p>
                 </div>
             </div>
-            <button className="mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">
+            <button
+                className={`mt-6 w-full py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100 ${
+                    !buttonVisibility ? ' bg-nude-100' : 'bg-nude-200'
+                }`}
+                disabled={!buttonVisibility}
+            >
                 {isEMoney ? 'CONTINUE & PAY' : 'CONTINUE'}
             </button>
         </div>

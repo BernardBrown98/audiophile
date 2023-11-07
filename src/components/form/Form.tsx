@@ -15,8 +15,18 @@ type Validation = {
 }
 
 export const Form = () => {
-    const [inputs, setInput] = useState<Input>({ payment: 'e-money' })
-    const isEMoney = inputs.payment === 'e-money'
+    const [inputs, setInput] = useState<Input>({
+        name: '',
+        email: '',
+        number: '',
+        address: '',
+        zip: '',
+        city: '',
+        country: '',
+        payment: 'e-money',
+        eNumber: '',
+        ePin: '',
+    })
 
     const validations: Validation = {
         email: (input: string): boolean => /^\S+@\S+\.\S+$/.test(input),
@@ -30,6 +40,19 @@ export const Form = () => {
         ePin: (input: string): boolean => /\d{4}/.test(input),
     }
 
+    const inputValidations = {
+        email: validations.email(inputs.email),
+        number: validations.number(inputs.number),
+        zip: validations.zip(inputs.zip),
+        eNumber: validations.eNumber(inputs.eNumber),
+        ePin: validations.ePin(inputs.ePin),
+    }
+    const isEMoney = inputs.payment === 'e-money'
+
+    const buttonVisibility: boolean =
+        Object.values(inputs).every((value) => value !== '') &&
+        Object.values(inputValidations).every((value) => value === true)
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
     }
@@ -42,6 +65,8 @@ export const Form = () => {
             return { ...prevInput, [name]: value }
         })
     }
+    console.log(inputs)
+    console.log(buttonVisibility)
 
     return (
         <form
@@ -73,7 +98,7 @@ export const Form = () => {
                             handleChange={handleChange}
                             value={inputs.email || ''}
                             errorMsg="Wrong Format"
-                            hasError={!validations.email(inputs.email)}
+                            hasError={!inputValidations.email}
                         />
                         <FormInput
                             name="number"
@@ -83,7 +108,7 @@ export const Form = () => {
                             handleChange={handleChange}
                             value={inputs.number || ''}
                             errorMsg="Invalid Number"
-                            hasError={!validations.number(inputs.number)}
+                            hasError={!inputValidations.number}
                         />
                         {/* <FormInput label="Email Address" placeholder="username" /> */}
                         {/* <FormInput label="Phone Number" placeholder="username" /> */}
@@ -109,7 +134,7 @@ export const Form = () => {
                             handleChange={handleChange}
                             value={inputs.zip || ''}
                             errorMsg="Wrong Format"
-                            hasError={!validations.zip(inputs.zip)}
+                            hasError={!inputValidations.zip}
                         />
                         <FormInput
                             name="city"
@@ -166,7 +191,7 @@ export const Form = () => {
                                 handleChange={handleChange}
                                 value={inputs.eNumber?.slice(0, 9) || ''}
                                 errorMsg="Wrong Format"
-                                hasError={!validations.eNumber(inputs.eNumber)}
+                                hasError={!inputValidations.eNumber}
                             />
                             <FormInput
                                 name="ePin"
@@ -176,7 +201,7 @@ export const Form = () => {
                                 handleChange={handleChange}
                                 value={inputs.ePin?.slice(0, 4) || ''}
                                 errorMsg="Wrong Format"
-                                hasError={!validations.ePin(inputs.ePin)}
+                                hasError={!inputValidations.ePin}
                             />
                             {/* <FormInput label="Email Address" placeholder="username" /> */}
                             {/* <FormInput label="Phone Number" placeholder="username" /> */}
@@ -196,7 +221,7 @@ export const Form = () => {
                     )}
                 </div>
             </div>
-            <Summary isEMoney={isEMoney} />
+            <Summary isEMoney={isEMoney} buttonVisibility={buttonVisibility} />
         </form>
     )
 }

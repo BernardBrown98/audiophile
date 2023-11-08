@@ -15,7 +15,7 @@ interface CartItemProps {
 }
 
 export const CartItem = ({ id, summary }: CartItemProps) => {
-    const { removeFromCart, getQuantity } = useShoppingCart()
+    const { removeFromCart, cartUtilities } = useShoppingCart()
     const item = data[id - 1]
     return (
         <div className="flex flex-row items-center">
@@ -41,7 +41,7 @@ export const CartItem = ({ id, summary }: CartItemProps) => {
             )}
             {summary && (
                 <p className="text-p font-[700] opacity-50">
-                    x{getQuantity(id, 'cart')}
+                    x{cartUtilities('count')}
                 </p>
             )}
         </div>

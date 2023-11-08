@@ -36,13 +36,11 @@ export const Layout = () => {
         // if either hamburger menu or cart is open and logo is clicked the overlay will be closed
         if (element === undefined && isActiveCart) {
             setIsActiveCart((prev) => !prev)
-            console.log('im here')
         }
         if (element === undefined && isActive) {
-            console.log('im here')
             setIsActive((prev) => !prev)
         }
-
+        if (element === undefined && !isActiveCart && !isActive) return
         isActive || isActiveCart
             ? (document.body.style.overflow = 'visible')
             : (document.body.style.overflow = 'hidden')
@@ -65,7 +63,7 @@ export const Layout = () => {
     return (
         <>
             <Header isActive={isActive} handleClick={handleClick} />
-            <Cart isActiveCart={isActiveCart} />
+            <Cart isActiveCart={isActiveCart} handleClick={handleClick} />
             <main className={opacityClasses}>
                 <Outlet />
             </main>

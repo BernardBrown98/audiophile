@@ -31,16 +31,8 @@ export const useShoppingCart = () => {
 export const ShoppingCartProvider = ({
     children,
 }: ShoppingCartProviderProps) => {
-    const [cartItems, setCartItems] = useState<CartItem[]>([
-        { id: 2, quantity: 2, price: 250 },
-        { id: 2, quantity: 2, price: 250 },
-        { id: 2, quantity: 2, price: 250 },
-    ])
-    const [queCartItems, setQueCartItems] = useState<CartItem[]>([
-        { id: 2, quantity: 2, price: 250 },
-        { id: 2, quantity: 2, price: 250 },
-        { id: 2, quantity: 2, price: 250 },
-    ])
+    const [cartItems, setCartItems] = useState<CartItem[]>([])
+    const [queCartItems, setQueCartItems] = useState<CartItem[]>([])
     const getQuantity = (id: number, cart: 'cart' | 'que') => {
         return cart === 'cart'
             ? cartItems.find((item) => item.id === id)?.quantity || 1

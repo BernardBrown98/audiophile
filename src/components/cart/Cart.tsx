@@ -1,4 +1,6 @@
 import clsx from 'clsx'
+// hooks
+import { useNavigate } from 'react-router-dom'
 // components
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { CartItem } from './CartItem'
@@ -6,9 +8,11 @@ import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface CartProps {
     isActiveCart: boolean
+    handleClick: (element: 'cart') => void
 }
 
-export const Cart = ({ isActiveCart }: CartProps) => {
+export const Cart = ({ isActiveCart, handleClick }: CartProps) => {
+    const navigate = useNavigate()
     const cartClasses = clsx(
         'fixed top-[113px] z-50 flex min-h-[486px] w-full flex-col items-center px-6 md:px-10',
         {
@@ -18,6 +22,12 @@ export const Cart = ({ isActiveCart }: CartProps) => {
     const { cartItems, removeAllFromCart, cartUtilities } = useShoppingCart()
     const count =
         cartUtilities('count') > 0 ? `(${cartUtilities('count')})` : ''
+
+    const handleNavigate = () => {
+        console.log('hello')
+        navigate('/checkout')
+        handleClick('cart')
+    }
     return (
         <div className={cartClasses}>
             <div className="flex w-full max-w-[1100px] flex-col items-center md:items-end">
@@ -45,7 +55,10 @@ export const Cart = ({ isActiveCart }: CartProps) => {
                             {formatCurrency(cartUtilities('price'))}
                         </p>
                     </div>
-                    <button className="mb-[31px] mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100">
+                    <button
+                        onClick={handleNavigate}
+                        className="mb-[31px] mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
+                    >
                         CONTINUE
                     </button>
                 </div>

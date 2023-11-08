@@ -40,18 +40,22 @@ export const Form = () => {
         ePin: (input: string): boolean => /\d{4}/.test(input),
     }
 
+    const isEMoney = inputs.payment === 'e-money'
+
     const inputValidations = {
         email: validations.email(inputs.email),
         number: validations.number(inputs.number),
         zip: validations.zip(inputs.zip),
-        eNumber: validations.eNumber(inputs.eNumber),
-        ePin: validations.ePin(inputs.ePin),
+        ...(isEMoney && { eNumber: validations.eNumber(inputs.eNumber) }),
+        ...(isEMoney && { ePin: validations.ePin(inputs.ePin) }),
     }
-    const isEMoney = inputs.payment === 'e-money'
 
-    const buttonVisibility: boolean =
-        Object.values(inputs).every((value) => value !== '') &&
-        Object.values(inputValidations).every((value) => value === true)
+    const buttonVisibility: boolean = !isEMoney
+        ? Object.values(inputs)
+              .slice(0, -2)
+              .every((value) => value !== '')
+        : Object.values(inputs).every((value) => value !== '') &&
+          Object.values(inputValidations).every((value) => value === true)
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -65,8 +69,6 @@ export const Form = () => {
             return { ...prevInput, [name]: value }
         })
     }
-    console.log(inputs)
-    console.log(buttonVisibility)
 
     return (
         <form
@@ -74,9 +76,12 @@ export const Form = () => {
             className="mb-[97px] flex flex-col md:mb-[116px] xl:mb-[140px] xl:flex-row xl:gap-[30px]"
         >
             <div className="grow rounded-lg bg-white p-[24px_24px_30px] shadow-lg md:p-[30px_27px] xl:p-[54px_48px_48px]">
-                <h2 className="text-subHeader tracking-[1px]  md:text-desktopSubheader">
+                <h2 className="text-subHeader tracking-[1px] md:text-desktopSubheader">
                     CHECKOUT
                 </h2>
+                <p className="-mb-2 mt-6 text-label opacity-90 md:-mb-3">
+                    *All Fields Required
+                </p>
                 <div className="mt-8 md:mt-10">
                     <h3 className="text-link tracking-[0.929px] text-nude-200">
                         BILLING DETAILS
@@ -190,7 +195,7 @@ export const Form = () => {
                                 placeholder="736421993"
                                 handleChange={handleChange}
                                 value={inputs.eNumber?.slice(0, 9) || ''}
-                                errorMsg="Wrong Format"
+                                errorMsg="Must Be 9 Digits"
                                 hasError={!inputValidations.eNumber}
                             />
                             <FormInput
@@ -200,7 +205,7 @@ export const Form = () => {
                                 placeholder="3256"
                                 handleChange={handleChange}
                                 value={inputs.ePin?.slice(0, 4) || ''}
-                                errorMsg="Wrong Format"
+                                errorMsg="Must Be 4 Digits"
                                 hasError={!inputValidations.ePin}
                             />
                             {/* <FormInput label="Email Address" placeholder="username" /> */}

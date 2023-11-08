@@ -28,6 +28,8 @@ export const Cart = ({ isActiveCart, handleClick }: CartProps) => {
         navigate('/checkout')
         handleClick('cart')
     }
+
+    const noCartItems = cartItems.length < 1
     return (
         <div className={cartClasses}>
             <div className="flex w-full max-w-[1100px] flex-col items-center md:items-end">
@@ -44,20 +46,31 @@ export const Cart = ({ isActiveCart, handleClick }: CartProps) => {
                         )}
                     </div>
                     <section className="flex max-h-[256px] flex-col gap-8 overflow-y-auto">
+                        {noCartItems && (
+                            <p className=" mx-auto text-center text-recommendation opacity-50">
+                                Cart Is Empty
+                            </p>
+                        )}
+
                         {cartItems.map((item) => (
                             <CartItem id={item.id} key={item.id} />
                         ))}
                     </section>
+                    {!noCartItems && (
+                        <div className="mt-8 flex flex-row justify-between">
+                            <p className="text-p opacity-50">TOTAL</p>
+                            <p className="text-p font-bold">
+                                {formatCurrency(cartUtilities('price'))}
+                            </p>
+                        </div>
+                    )}
 
-                    <div className="mt-8 flex flex-row justify-between">
-                        <p className="text-p opacity-50">TOTAL</p>
-                        <p className="text-p font-bold">
-                            {formatCurrency(cartUtilities('price'))}
-                        </p>
-                    </div>
                     <button
+                        disabled={noCartItems}
                         onClick={handleNavigate}
-                        className="mb-[31px] mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100"
+                        className={`mb-[31px] mt-6 w-full bg-nude-200 py-[15px] text-shop text-white transition-all ease-in-out hover:bg-nude-100 ${
+                            noCartItems && 'bg-nude-100'
+                        }`}
                     >
                         CONTINUE
                     </button>

@@ -43,12 +43,8 @@ export const OrderConfirmation = ({
                 <section className="flex max-h-[256px] grow flex-col overflow-y-auto rounded-lg rounded-b-none bg-[#F1F1F1] px-6 pt-6 md:rounded-b-lg md:rounded-r-none">
                     {!isActive
                         ? cartItems.slice(0, 1).map((item) => (
-                              <div className="mb-2">
-                                  <CartItem
-                                      id={item.id}
-                                      key={item.id}
-                                      summary
-                                  />
+                              <div key={item.id} className="mb-2">
+                                  <CartItem id={item.id} summary />
                               </div>
                           ))
                         : cartItems.map((item) => (

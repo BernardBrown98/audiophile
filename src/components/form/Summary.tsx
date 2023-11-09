@@ -55,7 +55,10 @@ export const Summary = ({ isEMoney, buttonVisibility }: SummaryProps) => {
                     !buttonVisibility ? ' bg-nude-100' : 'bg-nude-200'
                 }`}
                 disabled={!buttonVisibility}
-                onClick={() => handleClick('summary')}
+                onClick={() => {
+                    handleClick('summary')
+                    window.scrollTo(0, 0)
+                }}
             >
                 {isEMoney ? 'CONTINUE & PAY' : 'CONTINUE'}
             </button>

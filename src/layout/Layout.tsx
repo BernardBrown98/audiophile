@@ -7,9 +7,11 @@ import { Outlet, useOutletContext } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Cart } from '../components/cart/Cart'
+import { OrderConfirmation } from '../components/form/OrderConfirmation'
 
 type ContextType = {
-    handleClick: (element: 'summary') => void
+    handleClick: (element?: 'summary') => void
+    isActiveSummary: boolean
 }
 
 export const Layout = () => {
@@ -42,6 +44,7 @@ export const Layout = () => {
         }
 
         if (element === 'summary') {
+            console.log('we in here')
             setIsActiveSummary((prev) => !prev)
             if (isActive) setIsActive((prev) => !prev)
             if (isActiveCart) setIsActiveCart((prev) => !prev)
@@ -53,7 +56,17 @@ export const Layout = () => {
         if (element === undefined && isActive) {
             setIsActive((prev) => !prev)
         }
-        if (element === undefined && !isActiveCart && !isActive) return
+
+        if (element === undefined && isActiveSummary) {
+            setIsActiveSummary((prev) => !prev)
+        }
+        if (
+            element === undefined &&
+            !isActiveCart &&
+            !isActive &&
+            !isActiveSummary
+        )
+            return
         isActive || isActiveCart || isActiveSummary
             ? (document.body.style.overflow = 'visible')
             : (document.body.style.overflow = 'hidden')
@@ -80,8 +93,13 @@ export const Layout = () => {
         <>
             <Header isActive={isActive} handleClick={handleClick} />
             <Cart isActiveCart={isActiveCart} handleClick={handleClick} />
+            <OrderConfirmation
+                isActiveSummary={isActiveSummary}
+                handleClick={handleClick}
+            />
+
             <main className={opacityClasses}>
-                <Outlet context={{ handleClick }} />
+                <Outlet context={{ handleClick, isActiveSummary }} />
             </main>
             <footer className="relative top-[89px] flex flex-col items-center bg-offBlack-200 pb-[38px] md:pb-[46px] xl:pb-[48px]">
                 <Footer />

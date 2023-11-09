@@ -1,7 +1,6 @@
 // hooks
 import { NavLink } from 'react-router-dom'
 // components
-import { OrderConfirmation } from './form/OrderConfirmation'
 import { DropdownMenu } from './DropdownMenu'
 import { Links } from './Links'
 // context
@@ -69,7 +68,6 @@ export const Header = ({ isActive, handleClick }: HeaderProps) => {
                 isDropDown={true}
                 handleClick={handleClick}
             />
-            <OrderConfirmation />
         </>
     )
 }

@@ -1,5 +1,9 @@
+// context
 import { useShoppingCart } from '../../context/ShoppingCartContext'
+import { useHandleClick } from '../../layout/Layout'
+// components
 import { CartItem } from '../cart/CartItem'
+// utilities
 import { formatCurrency } from '../../utilities/formatCurrency'
 
 interface SummaryProps {
@@ -9,7 +13,7 @@ interface SummaryProps {
 
 export const Summary = ({ isEMoney, buttonVisibility }: SummaryProps) => {
     const { cartItems, cartUtilities } = useShoppingCart()
-
+    const { handleClick } = useHandleClick()
     return (
         <div className="mt-8 flex w-full max-w-[1100px] flex-col rounded-lg bg-white p-[32px_24px] shadow-lg  md:px-8 xl:mt-0 xl:max-w-[350px] xl:last:self-start">
             <div className="flex flex-row justify-between">
@@ -51,6 +55,7 @@ export const Summary = ({ isEMoney, buttonVisibility }: SummaryProps) => {
                     !buttonVisibility ? ' bg-nude-100' : 'bg-nude-200'
                 }`}
                 disabled={!buttonVisibility}
+                onClick={() => handleClick('summary')}
             >
                 {isEMoney ? 'CONTINUE & PAY' : 'CONTINUE'}
             </button>

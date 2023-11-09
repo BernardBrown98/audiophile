@@ -33,7 +33,7 @@ export const Footer = () => {
                     open 7 days a week.
                 </p>
                 <p className="text-center text-p opacity-50 md:text-start">
-                    Copyright 2021. All Rights Reserved
+                    Copyright 2023. All Rights Reserved
                 </p>
                 <div className="mx-auto flex flex-row items-center gap-5 md:absolute md:bottom-0 md:right-[39px] xl:bottom-[52px]">
                     <Facebook className="cursor-pointer fill-white transition-all ease-in-out hover:-translate-y-1 hover:scale-110 hover:fill-nude-200" />
